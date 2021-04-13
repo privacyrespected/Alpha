@@ -72,3 +72,6 @@ V2: Added UI from eel python library
 
 # EXE version
 To be uploaded
+
+# NOTE
+Alpha V1-V1.3 will not be released due to instability
