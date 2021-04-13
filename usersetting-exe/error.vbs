@@ -1,0 +1,1 @@
+x=msgbox("Bruh. You need to enter your information, try again" ,0, "Error")
