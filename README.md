@@ -43,7 +43,7 @@ For coders:
 5. [ ] Code cleanup
 6. [ ] Implment dictionary (both the one in python and in English)
 7. [x] No plans to implemenent Chinese
-8. [x] Implement coronavirus live tracking
+8. [ ] Implement coronavirus live tracking
 9. [ ] News
 10. [ ] How long have Xi been Communist party's leader tracker
 
@@ -57,7 +57,9 @@ Feel free to add more functions by issues and have fun!!
 # ChangeLog
 
 Version 1
+
 V1: Initial version
+
 V1.1: Small bug fixes
 V1.2: Code cleanup for UI implementation
 V1.3: Implmentation of UI attempt, failed
