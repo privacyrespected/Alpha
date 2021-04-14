@@ -9,7 +9,7 @@ currently being supported with security updates.
 | Version | Supported          |
 | ------- | ------------------ |
 | V2  | :white_check_mark: |
-
+| V1  | :x:                |
 ## Reporting a Vulnerability
 
 Please start an issue in github
