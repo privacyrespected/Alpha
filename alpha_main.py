@@ -169,9 +169,9 @@ print("All data confirmed and detected")
 def speak(audio):
     print(audio)
     #uncomment to activate tts
-    #engine = pyttsx3.init()
-    #engine.say(audio)
-    #engine.runAndWait()
+    engine = pyttsx3.init()
+    engine.say(audio)
+    engine.runAndWait()
 
 #speech recognition
 def listen():

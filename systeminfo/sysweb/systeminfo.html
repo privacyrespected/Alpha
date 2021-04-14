@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpha-System Analysis</title>
-    <link rel="stylesheet" href="sysinfo.css">
+    <style>
+        body {
+    background: black;
+    color: #02feff;
+  }
+    </style>
     <script src="/eel.js"></script>
     <script>
         async function redirect(){
@@ -31,9 +36,7 @@
             }
 
            }
-           window.addEventListener('load', (event) => {
-            redirect()
-          });
+           setInterval(function(){redirect();}, 10000);
     </script>
 
 </head>
