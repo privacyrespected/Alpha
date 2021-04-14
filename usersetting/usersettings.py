@@ -50,4 +50,4 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
 
 
 
-eel.start("homesetting.html")
+eel.start("homesetting.html",cmdline_args=['--start-fullscreen'], port=1111)

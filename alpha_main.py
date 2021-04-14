@@ -543,7 +543,7 @@ def alphamain():
             speak("Sorry I am unable to understand that")
             listen()
 def alpha_frontend():
-    eel.start("index.html",cmdline_args=['--start-fullscreen'])
+    eel.start("index.html",cmdline_args=['--start-fullscreen'],port=4000)
 #initiate functions
 if __name__ == "__main__":
     print("started")

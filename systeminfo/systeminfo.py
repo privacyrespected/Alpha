@@ -44,4 +44,4 @@ def generate_data():
             pass
         
     return data
-eel.start("systeminfo.html",size=(1024,900))
+eel.start("systeminfo.html",size=(1024,900), port=8127)
