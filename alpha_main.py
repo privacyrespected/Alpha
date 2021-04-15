@@ -32,6 +32,10 @@ import numpy as np
 from threading import Thread
 import platform
 import psutil
+from win10toast import ToastNotifier
+from bs4 import BeautifulSoup as bs
+import requests
+import time
 #syntax alarm(hour, minute)
 try:
     import webbrowser
@@ -228,7 +232,33 @@ def screenshot():
     img = pyautogui.screenshot()
     img.save('"C:\Pictures"/screenshot.png')
     speak("Okay, it is now in your Pictures folder")
-import requests
+def covid19():
+    country = usercity
+    worldmetersLink = "https://www.worldometers.info/coronavirus/"
+    try:
+        html_page = requests.get(worldmetersLink)
+    except requests.exceptions.RequestException as e: 
+        print(e) #ConnectionError
+        speak("You have been diconnected from the internet")
+        exit()
+    search = bs.select("div tbody tr td")
+    start = -1
+    for i in range(len(search)):
+        if search[i].get_text().find(country) !=-1:
+            start = i
+            break
+    data = []
+    for i in range(1,8):
+        try:
+            data += [search[start+i].get_text()]
+        except:
+            data += [0]
+    message = "Total infected: {} cases, New Case: {} cases, Total Deaths: {} cases, New Deaths: {} deaths, Recovred: {} patients, Current active Case: {} cases, Serious Critical: {} people".format(*data)
+    if user_gender=="Male":
+        speak("Sir, today's cases are as follow" + message)
+    else:
+        speak("Madam, today's cases are as follow" +message)
+import requests 
 from pprint import pprint
 def weather_data(query):
 	res=requests.get('http://api.openweathermap.org/data/2.5/weather?'+query+'&APPID=b35975e18dc93725acb092f7272cc6b8&units=metric');
