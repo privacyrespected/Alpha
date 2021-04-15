@@ -8,6 +8,96 @@
   <title>Alpha-Settings</title>
 </head>
 <body>
+  <style>
+    @import url(http://weloveiconfonts.com/api/?family=entypo);
+body {
+  background: black;
+  color: #02feff;
+}
+.inputbox {
+  background-color: rgb(104, 113, 116);
+  }
+/* Font / Universal Properties */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+  transition: 0.3s;
+}
+* {
+  user-select: none;
+  font: 20px 'Agency FB', sans-serif;
+}
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+/* Left Menu */
+#leftmenu {
+  position: fixed;
+  float: left;
+  margin-left: 50px;
+  width: 500px;
+}
+.menu {
+  width: 200px;
+  height: 200px;
+  margin: 0;
+  padding: 5px;
+}
+.menuitem {
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  margin-left: 5px;
+  color: #02feff;
+  background: transparent;
+  border: transparent;
+  font-size: 15px;
+  text-align: left;
+  display: block;
+  float: left;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.caption {
+  color: rgba(2, 255, 255, 0.6);
+  display: inline;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.caption:hover {
+  color: #02feff;
+}
+.app_icon {
+  width: 48px;
+  color: rgba(2, 255, 255, 0.6);
+  font-size: 40px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+}
+.app_icon:hover {
+  color: #02feff;
+}
+/* Right Menu */
+#rightmenu {
+  float: right;
+  margin-right: 20px;
+  width: 350px;
+}
+#note_input {
+  color: rgba(2, 255, 255, 0.6);
+  padding: 5px;
+  border-style: none;
+  background: transparent;
+  resize: none;
+  transition: 0.3s;
+  width: calc(100% - 15px);
+}
+#note_input:hover {
+  color: #02feff;
+  transition: 0.3s;
+}
+  </style>
 <div id="leftmenu">
   <span class="menuitem entypo-chart-pie" style="font-size: 50px; margin-left: 10px;">
     <p id="demo" class="caption" style="font-size: 50px;"></p>
