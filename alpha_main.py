@@ -566,10 +566,10 @@ def getnews():
     df_show_info = pd.DataFrame(
         {'Article Title': list_titles,
          'Article Link': list_links,
-         'Newspaper': 'The Guardian'})
-
-    
+         'Newspaper': 'The Guardian'})    
+    print(df_features + df_show_info)
     return (df_features, df_show_info)
+
 def alphamain():
     while True:
         query = listen().lower()
