@@ -111,6 +111,10 @@ sysinfo=[
     "PC info",
     "PC information"
 ]
+meaning=[
+    "meaning",
+    "definition"
+]
 errormessage = ("error")
 print("ALPHA V2.0")
 print("Developed by: NuggetCat ")
@@ -196,7 +200,17 @@ def listen():
         return "None"
     return query
 
-
+def dictionary(word):
+    from bs4 import BeautifulSoup
+    word = str(word)
+    speak("Pronounced as" + word)
+    url = "http://dictionary.cambridge.org/dictionary/british/" + word.lower()
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content)
+    word = soup.find("span", {"class": "pos"}).text
+    definition = soup.find("span", {"class": "def"}).text
+    speak("It is usually used as a " +word)
+    speak("It means"+definition)
 
 def wishMe():
     hour = int(datetime.datetime.now().hour)
@@ -517,6 +531,16 @@ def alphamain():
                 else:
                     speak("Madam")
                 os.system("systeminfo-exe/systeminfo.exe")
+        for defo in meaning:
+            if defo in query:
+                print("Dictionary")
+                if "what is" in query:
+                    query=query.replace("what is","")
+                if "the meaning of" in query:
+                    query=query.replace("the meaning of", "")
+                query=str(query)
+                dictionary(query)
+                continue
         #google search
         if 'google' in query:
             query=query.replace("google", "")
@@ -536,7 +560,6 @@ def alphamain():
         elif 'youtube' in query:
             speak("Opening youtube")
             webbrowser.open("www.youtube.com")
-
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S") 
             if user_gender == "Male":
