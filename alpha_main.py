@@ -176,7 +176,6 @@ print("All data confirmed and detected")
 #tts
 def speak(audio):
     print(audio)
-    #uncomment to activate tts
     engine = pyttsx3.init()
     engine.say(audio)
     engine.runAndWait()
@@ -541,6 +540,12 @@ def alphamain():
                 query=str(query)
                 dictionary(query)
                 continue
+        if "covid" in query:
+            covid19()
+        if "coronavirus" in query:
+            covid19()
+        if "kung flu" in query:
+            covid19()
         #google search
         if 'google' in query:
             query=query.replace("google", "")
