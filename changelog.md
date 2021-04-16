@@ -11,3 +11,9 @@
 ||4. implemented dictionaries |
 ||5. implemented system analysis and other stuff |
 ||6. And More !!|
+|V2.1 | |1. Added covid19 tracking |
+||2. Improved speech recognition|
+||3. Added dictionary|
+||4. Bug Fixes|
+||5. And More! |
+
