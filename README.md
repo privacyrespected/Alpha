@@ -2,9 +2,9 @@
 Alpha is the ongoing expanding virtual assistance. Version 2 is an upgraded version
 
 # Current Version status:
-1. Version: 2.0 
+1. Version: 2.1
 
-2. Version status: In Beta testing process
+2. Version status: 2.0 is stable. 2.1 under Beta testing
 
 3. Development status: Actively developing, bugs will be addressed
 
