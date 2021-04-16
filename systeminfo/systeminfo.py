@@ -9,7 +9,7 @@ partition_info=psutil.disk_partitions()
 
 memory_info=psutil.virtual_memory()
 print(memory_info)
-eel.init("systeminfo/sysweb")
+eel.init("sysweb")
 @eel.expose
 def generate_data():
     def size_utility(size,initials="B"):
