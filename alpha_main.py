@@ -1,9 +1,21 @@
 def reporterror(errorr, suggest):
     print(errorr)
+    today = date.today()
+    errordate = today.strftime("%d/%m/%Y")
+    now = datetime.now()
+    errortime = now.strftime("%H:%M:%S")
     f=open("errorlog.txt", "w")
     f.write("ERROR")
     f.write("\n")
+    f.write("Error date: "+errordate)
+    f.write("\n")
+    f.write("Error time: "+errortime)
+    f.write("\n")
+    f.write("Error: ")
+    f.write("\n")
     f.write(errorr)
+    f.write("\n")
+    f.write("Suggestions: ")
     f.write("\n")
     f.write(suggest)
     f.close()
@@ -202,7 +214,6 @@ def listen():
         print("Audio not heard, plesae try again")
         return "None"
     return query
-
 def dictionary(word):
     from bs4 import BeautifulSoup
     word = str(word)
@@ -666,7 +677,10 @@ def alphamain():
                 sayhello2()
 
         else:
-            speak("Sorry I am unable to understand that")
+            speak("Sorry I don't understand")
+            understanderror="Unable to comprehend command: " +str(query)
+            understanderror=str(understanderror)
+            reporterror(understanderror, "try different voice commands")
             listen()
 def alpha_frontend():
     eel.start("index.html",cmdline_args=['--start-fullscreen'],port=4000)
