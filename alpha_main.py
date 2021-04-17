@@ -174,7 +174,9 @@ print(user_dob)
 print(user_email)
 print(user_email_password)
 print("All data confirmed and detected")
-
+# create an object to ToastNotifier class
+dataconfirm = ToastNotifier()
+dataconfirm.show_toast("Alpha", "User data confirmed", duration = 10, icon_path ="app.ico")
 #tts
 def speak(audio):
     print(audio)
