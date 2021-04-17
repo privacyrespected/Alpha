@@ -281,12 +281,10 @@ def weather_data(query):
 	res=requests.get('http://api.openweathermap.org/data/2.5/weather?'+query+'&APPID=b35975e18dc93725acb092f7272cc6b8&units=metric');
 	return res.json();
 def print_weather(result,usercity):
-    
     speak("{}'s temperature is {} degress Celcius ".format(usercity,result['main']['temp']))
     speak("Wind speed is {} meters per second".format(result['wind']['speed']))
 	
     speak("The weather looks {}".format(result['weather'][0]['description']))
-	
     print("Weather: {}".format(result['weather'][0]['main']))
 def weathermain(usercity):
 	print()
@@ -306,10 +304,8 @@ def sing2():
 #weathermain(usercity)
 def sayhello():
     speak("Hello everyone." + user_name + "who are these people")
-
 def sayhello2():
     speak(user_name + "I feel awkward.")
-
 def sing():
     speak("I do not think you will like it")
 def sing2():
@@ -319,7 +315,6 @@ def sing2():
 def alarm(hour, minute): 
     # Getting the current path of the script
     path = os.getcwd()
-
     # Setting up the alarm path
     alarm_path = path + '\Alarm_Tunes'
 
@@ -601,7 +596,7 @@ def alphamain():
                     speak("sir")
                 else:
                     speak("Madam")
-                os.system("systeminfo-exe/systeminfo.exe")
+                os.system("systeminfo.exe")
         for defo in meaning:
             if defo in query:
                 print("Dictionary")
