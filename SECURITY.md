@@ -13,4 +13,4 @@ currently being supported with security updates.
 | V1  | :x:                |
 ## Reporting a Vulnerability
 
-Please start an issue in github
+Please report any vulnerability to issues on this github repository
