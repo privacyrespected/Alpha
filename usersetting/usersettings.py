@@ -1,8 +1,30 @@
 import eel
 import time
 import os
+from datetime import date
+import datetime
 import eel
-
+def reporterror(errorr, suggest):
+    print(errorr)
+    today = date.today()
+    errordate = today.strftime("%d/%m/%Y")
+    now = datetime.now()
+    errortime = now.strftime("%H:%M:%S")
+    f=open("errorlog.txt", "w")
+    f.write("ERROR")
+    f.write("\n")
+    f.write("Error date: "+errordate)
+    f.write("\n")
+    f.write("Error time: "+errortime)
+    f.write("\n")
+    f.write("Error: ")
+    f.write("\n")
+    f.write(errorr)
+    f.write("\n")
+    f.write("Suggestions: ")
+    f.write("\n")
+    f.write(suggest)
+    f.close()
 def error():
     print("bruh")
     os.startfile("error.vbs")
@@ -50,6 +72,7 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
             f.close()
     except Exception as e:
         print(e)
+        reporterror(e, "Open issue oon github")
 
 
 eel.start("homesetting.html",cmdline_args=['--start-fullscreen'], port=1111)
