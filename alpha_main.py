@@ -130,6 +130,11 @@ meaning=[
     "meaning",
     "definition"
 ]
+happy_response=[
+    "I'm happy to hear that",
+    "That's good news!",
+    "Nice."
+]
 errormessage = ("error")
 print("ALPHA V2.0")
 print("Developed by: NuggetCat ")
@@ -658,7 +663,8 @@ def alphamain():
             print(songs)    
             os.startfile(os.path.join(music_dir, songs[0]))
         if 'good' in query:
-            speak("I am happy to hear that!")
+            noice=random.choice(happy_response)
+            speak(noice)
         if 'bad ' in query:
             speak("I am sorry to hear that.")
         elif "sing" in query:
