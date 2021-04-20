@@ -686,11 +686,9 @@ def alphamain():
 def alpha_frontend():
     if sys.platform in ['win32', 'win64'] and int(platform.release()) >= 10:
 
-        eel.start("homesetting.html",cmdline_args=['--start-fullscreen'], port=1111, mode='edge')
+        eel.start("index.html",cmdline_args=['--start-fullscreen'], port=4000, mode='edge')
     else:
         raise EnvironmentError('Error: System is not Windows 10 or above')
-
-    eel.start("index.html",cmdline_args=['--start-fullscreen'],port=4000)
 #initiate functions
 if __name__ == "__main__":
     print("started")
