@@ -50,6 +50,7 @@ import requests
 import time
 import requests
 from bs4 import BeautifulSoup
+import sys
 #syntax alarm(hour, minute)
 try:
     import webbrowser
@@ -683,6 +684,12 @@ def alphamain():
             reporterror(understanderror, "try different voice commands")
             listen()
 def alpha_frontend():
+    if sys.platform in ['win32', 'win64'] and int(platform.release()) >= 10:
+
+        eel.start("homesetting.html",cmdline_args=['--start-fullscreen'], port=1111, mode='edge')
+    else:
+        raise EnvironmentError('Error: System is not Windows 10 or above')
+
     eel.start("index.html",cmdline_args=['--start-fullscreen'],port=4000)
 #initiate functions
 if __name__ == "__main__":
