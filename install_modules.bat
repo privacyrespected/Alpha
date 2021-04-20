@@ -1,6 +1,8 @@
 echo WARNING: PYTHON 3.6 OR ABOVE 64BIT MUST BE INSTALLED
 pip install pyttsx3
-pip install speech_recognition
+
+pip install SpeechRecognition
+
 pip install google
 pip install wikipedia
 pip install pygame
