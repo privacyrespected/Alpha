@@ -2,7 +2,7 @@ import eel
 from datetime import datetime
 import platform
 import psutil
-
+import sys
 system=platform.uname()
 #print(system)
 partition_info=psutil.disk_partitions()
@@ -44,4 +44,9 @@ def generate_data():
             pass
         
     return data
-eel.start("systeminfo.html",size=(1024,900), port=8127)
+
+if sys.platform in ['win32', 'win64'] and int(platform.release()) >= 10:
+
+    eel.start("systeminfo.html",size=(1024,900), port=8127, mode='edge')
+else:
+    raise EnvironmentError('Error: System is not Windows 10 or above')
