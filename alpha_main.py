@@ -59,59 +59,6 @@ try:
     from googlesearch import search
 except ImportError:
     reporterror("module google not found", "Check pip installation")
-def usersettings():
-    print("Starting usersettings")
-    import eel
-    import time
-    import os
-    import eel
-
-    def error():
-        print("bruh")
-        os.startfile("error.vbs")
-
-    eel.init("usersetting/settingweb")
-
-    @eel.expose
-    def usersettingwrite(username, usercity, user_gender, userdob, useremail, useremailpass):
-        print("Name: " + username)
-        print("Usercity: " + usercity)
-        print("usergender: " + user_gender)
-        print("userdob: " + userdob)
-        print("useremail: " + useremail)
-        print("useremailpass: " + useremailpass)
-        if username=="":
-            error()
-        if usercity=="":
-            error()
-        if user_gender=="":
-            error()
-        if userdob=="":
-            error()
-        if useremail=="":
-            error()
-        if useremailpass=="":
-            error()
-        else:
-            time.sleep(1)
-            print("Creating a new user profile")
-            f= open("user.txt","w+")
-            f.write("\n")
-            f.write(username)
-            f.write("\n")
-            f.write(usercity)
-            f.write("\n")
-            f.write(user_gender)
-            f.write("\n")
-            f.write(userdob)
-            f.write("\n")
-            f.write(useremail)
-            f.write("\n")
-            f.write(useremailpass)
-            time.sleep(3)
-            f.close()
-    eel.start("homesetting.html",cmdline_args=['--start-fullscreen'], port=1111)
-
 positivesigns=[
     "yes",
     "sure",
