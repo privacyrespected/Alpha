@@ -135,6 +135,11 @@ happy_response=[
     "That's good news!",
     "Nice."
 ]
+sad_response=[
+    "I'm sorry to hear that.",
+    "That's not good",
+    "What can I help?"
+]
 errormessage = ("error")
 print("ALPHA V2.0")
 print("Developed by: NuggetCat ")
@@ -666,7 +671,8 @@ def alphamain():
             noice=random.choice(happy_response)
             speak(noice)
         if 'bad ' in query:
-            speak("I am sorry to hear that.")
+            saddest=random.choice(sad_response)
+            speak(saddest)
         elif "sing" in query:
             print("hihi")
             random_sing = random.randint(1,2)
