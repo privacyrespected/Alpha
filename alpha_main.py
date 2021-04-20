@@ -140,6 +140,12 @@ sad_response=[
     "That's not good",
     "What can I help?"
 ]
+understandnt=[
+    "Sorry, I do not understand",
+    "Apologies, I do not understand",
+    "Can you repeat that, please",
+    "Sorry I do not have the ability to solve this problem"
+]
 errormessage = ("error")
 print("ALPHA V2.0")
 print("Developed by: NuggetCat ")
@@ -690,7 +696,7 @@ def alphamain():
                 sayhello2()
 
         else:
-            speak("Sorry I don't understand")
+            speak(random.choice(understandnt))
             understanderror="Unable to comprehend command: " +str(query)
             understanderror=str(understanderror)
             reporterror(understanderror, "try different voice commands")
