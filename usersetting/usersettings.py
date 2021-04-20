@@ -4,6 +4,8 @@ import os
 from datetime import date
 import datetime
 import eel
+import sys
+import platform
 def reporterror(errorr, suggest):
     print(errorr)
     today = date.today()
@@ -73,6 +75,8 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
     except Exception as e:
         print(e)
         reporterror(e, "Open issue oon github")
+if sys.platform in ['win32', 'win64'] and int(platform.release()) >= 10:
 
-
-eel.start("homesetting.html",cmdline_args=['--start-fullscreen'], port=1111)
+    eel.start("homesetting.html",cmdline_args=['--start-fullscreen'], port=1111, mode='edge')
+else:
+    raise EnvironmentError('Error: System is not Windows 10 or above')
