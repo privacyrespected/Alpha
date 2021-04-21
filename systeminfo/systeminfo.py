@@ -47,6 +47,6 @@ def generate_data():
 
 if sys.platform in ['win32', 'win64'] and int(platform.release()) >= 10:
 
-    eel.start("systeminfo.html",size=(1024,900), port=8127, mode='edge')
+    eel.start("systeminfo.html",size=(1024,900), port=8127, mode='default')
 else:
     raise EnvironmentError('Error: System is not Windows 10 or above')

@@ -77,6 +77,6 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
         reporterror(e, "Open issue oon github")
 if sys.platform in ['win32', 'win64'] and int(platform.release()) >= 10:
 
-    eel.start("homesetting.html",cmdline_args=['--start-fullscreen'], port=1111, mode='edge')
+    eel.start("homesetting.html",cmdline_args=['--start-fullscreen'], port=1111, mode='default')
 else:
     raise EnvironmentError('Error: System is not Windows 10 or above')
