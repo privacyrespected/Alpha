@@ -146,6 +146,11 @@ understandnt=[
     "Can you repeat that, please",
     "Sorry I do not have the ability to solve this problem"
 ]
+thankyouresponse=[
+    "Thanks",
+    "Thank you very much",
+    "At your service."
+]
 errormessage = ("error")
 print("ALPHA V2.0")
 print("Developed by: NuggetCat ")
