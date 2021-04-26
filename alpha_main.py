@@ -28,7 +28,7 @@ import wikipedia
 import time
 import os
 import os.path
-from os import path
+from os import error, path
 import eel
 from datetime import date
 import speech_recognition as sr
@@ -728,5 +728,9 @@ if __name__ == "__main__":
         wishMe()
     elif int(random_functions) == 2:
         wishme2()
-    Thread(target=alphamain).start()
-    Thread(target=alpha_frontend).start()
+    try:
+        Thread(target=alphamain).start()
+        Thread(target=alpha_frontend).start()
+    except Exception as e:
+        print(e)
+        reporterror(e, "github it or ask a cat")
