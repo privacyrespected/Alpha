@@ -201,6 +201,7 @@ user_gender=lines[3]
 user_dob=lines[4]
 user_email=lines[5]
 user_email_password=lines[6]
+print("Confirming user data")
 print(user_name)
 print(usercity)
 print(user_gender)
@@ -210,7 +211,11 @@ print(user_email_password)
 print("All data confirmed and detected")
 # create an object to ToastNotifier class
 dataconfirm = ToastNotifier()
-dataconfirm.show_toast("Alpha", "User data confirmed", duration = 10, icon_path ="app.ico")
+dataconfirm.show_toast("Alpha", "User data confirmed", duration = 5, icon_path ="app.ico")
+def notify(title, content, duration):
+    dataconfirm = ToastNotifier()
+    icon_path="app.ico"
+    dataconfirm.show_toast(title, content, duration, icon_path)
 #tts
 def speak(audio):
     print(audio)
@@ -441,6 +446,7 @@ def alarm(hour, minute):
             break
         else:
             print("Error: Wrong Time Entered! Please enter again!")
+            speak("This time is invalid")
 
     # Converting the alarm time to seconds
     alarm_sec = hour*3600 + minute*60 + seconds
