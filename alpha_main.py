@@ -714,7 +714,7 @@ def alphamain():
             listen()
 def alpha_frontend():
     if sys.platform in ['win32', 'win64'] and int(platform.release()) >= 10:
-
+        print("Start frontend")
         eel.start("index.html",cmdline_args=['--start-fullscreen'], port=4000, mode='default')
     else:
         raise EnvironmentError('Error: System is not Windows 10 or above')
