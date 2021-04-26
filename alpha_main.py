@@ -149,7 +149,7 @@ understandnt=[
 thankyouresponse=[
     "Thanks",
     "Thank you very much",
-    "At your service."
+    "At your service"
 ]
 errormessage = ("error")
 print("ALPHA V2.0")
