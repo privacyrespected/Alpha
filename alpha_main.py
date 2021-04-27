@@ -655,7 +655,8 @@ def alphamain():
                         query=query.replace(alarmm, "")
                     else:
                         print("No aims provided, continue")
-
+                    if "o'clock" in query:
+                        query=query.replace("o'clock","")
         if "covid" in query:
             covid19()
         if "coronavirus" in query:
