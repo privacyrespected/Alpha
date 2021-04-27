@@ -646,6 +646,16 @@ def alphamain():
                 query=str(query)
                 dictionary(query)
                 continue
+            ########################################################################################
+            #########################################################################################
+        for alarm in alarm_trigger:
+            if alarm in query:
+                for alarmm in alarm_trigger_aims:
+                    if alarmm in query:
+                        query=query.replace(alarmm, "")
+                    else:
+                        print("No aims provided, continue")
+
         if "covid" in query:
             covid19()
         if "coronavirus" in query:
