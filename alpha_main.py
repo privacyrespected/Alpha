@@ -659,7 +659,7 @@ def alphamain():
                         query=query.replace("o'clock","")
                     else:
                         print("external words not found")
-                    
+                        
         if "covid" in query:
             covid19()
         if "coronavirus" in query:
