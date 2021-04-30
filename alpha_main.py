@@ -51,6 +51,7 @@ import time
 import requests
 from bs4 import BeautifulSoup
 import sys
+import operator
 #syntax alarm(hour, minute)
 try:
     import webbrowser
@@ -261,7 +262,19 @@ def dictionary(word):
     definition = soup.find("span", {"class": "def"}).text
     speak("It is usually used as a " +word)
     speak("It means"+definition)
-
+def get_operator_fn(op):
+    return {
+        '+' : operator.add,
+        '-' : operator.sub,
+        'x' : operator.mul,
+        'divided' :operator.__truediv__,
+        'Mod' : operator.mod,
+        'mod' : operator.mod,
+        '^' : operator.xor,
+        }[op]
+def eval_binary_expr(op1, oper, op2):
+    op1,op2 = int(op1), int(op2)
+    return get_operator_fn(oper)(op1, op2)
 def wishMe():
     hour = int(datetime.datetime.now().hour)
     if hour>=0 and hour<12:
@@ -647,7 +660,8 @@ def alphamain():
                 os.system("systeminfo.exe")
         for calculator in calculate_triggger:
             if calculator in query:
-                print("Your speech_recognition version is: "+sr.__version__)
+                query= str(query)
+                print(eval_binary_expr(*(query.split())))
         for defo in meaning:
             if defo in query:
                 print("Dictionary")
