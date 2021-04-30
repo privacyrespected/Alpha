@@ -645,6 +645,9 @@ def alphamain():
                 else:
                     speak("Madam")
                 os.system("systeminfo.exe")
+        for calculator in calculate_triggger:
+            if calculator in query:
+                print("Your speech_recognition version is: "+sr.__version__)
         for defo in meaning:
             if defo in query:
                 print("Dictionary")
