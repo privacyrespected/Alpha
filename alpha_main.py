@@ -184,8 +184,6 @@ def checknetwork1():
     checknetwork= str(checknetwork)
     current_network="Battery: " + checknetwork + "%"
     return current_network
-
-
 #load user data
 print("Checking user data...")
 if path.isfile('user.txt') == False:
@@ -193,8 +191,6 @@ if path.isfile('user.txt') == False:
     os.startfile("hmm.vbs")
     time.sleep(30)
     exit()
-
-
 #user data reconfirmation in backend
 print("Loading user data.")
 print("\n")
@@ -713,7 +709,6 @@ def alphamain():
                 speak(f"Sir, the time is {strTime}")
             else:
                 speak(f"Madam, the time is {strTime}")
-        
         elif 'play music' in query:
             music_dir = 'User_music'
             print("This functions require you to import mp3 files for this version.")
