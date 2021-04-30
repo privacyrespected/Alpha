@@ -155,11 +155,7 @@ thankyouresponse=[
 calculate_triggger=[
     "Calculate",
     "evaluate",
-    "plus",
-    "minus",
-    "divided",
-    "multiplied",
-    "times"
+    "what is",
 ]
 errormessage = ("error")
 print("ALPHA V2.0")
