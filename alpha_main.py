@@ -151,6 +151,15 @@ thankyouresponse=[
     "Thank you very much",
     "At your service"
 ]
+calculate_triggger=[
+    "Calculate",
+    "evaluate",
+    "plus",
+    "minus",
+    "divided",
+    "multiplied",
+    "times"
+]
 errormessage = ("error")
 print("ALPHA V2.0")
 print("Developed by: NuggetCat ")
@@ -659,7 +668,7 @@ def alphamain():
                         query=query.replace("o'clock","")
                     else:
                         print("external words not found")
-                        
+                      
         if "covid" in query:
             covid19()
         if "coronavirus" in query:
