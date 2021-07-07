@@ -1,25 +1,6 @@
-def reporterror(errorr, suggest):
-    print(errorr)
-    today = date.today()
-    errordate = today.strftime("%d/%m/%Y")
-    now = datetime.now()
-    errortime = now.strftime("%H:%M:%S")
-    f=open("errorlog.txt", "w")
-    f.write("ERROR")
-    f.write("\n")
-    f.write("Error date: "+errordate)
-    f.write("\n")
-    f.write("Error time: "+errortime)
-    f.write("\n")
-    f.write("Error: ")
-    f.write("\n")
-    f.write(errorr)
-    f.write("\n")
-    f.write("Suggestions: ")
-    f.write("\n")
-    f.write(suggest)
-    f.close()
 
+def reporterror(errorr, suggest):
+    print(errorr + suggest)
 #import modules
 from sys import excepthook
 import pyttsx3
