@@ -73,8 +73,12 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
                     #continue writing data in alpha_main.py
                 }
             }
+            personal_discord_bot_token={
+                "null"
+            }
             json.dump(data, f, ensure_ascii=False, indent=4)
             json.dump(medic_data, f, ensure_ascii=False, indent=4)
+            json.dump(personal_discord_bot_token, f,ensure_ascii=False, indent=4)
     except Exception as e:
         print(e)
         reporterror(e, "Open issue on github")
