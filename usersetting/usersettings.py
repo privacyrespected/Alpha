@@ -6,6 +6,9 @@ import datetime
 import eel
 import sys
 import platform
+import json
+#with open('data.json', 'w', encoding='utf-8') as f:
+    #json.dump(data, f, ensure_ascii=False, indent=4)
 def reporterror(errorr, suggest):
     print(errorr)
     today = date.today()
@@ -36,45 +39,19 @@ eel.init("settingweb")
 @eel.expose
 def usersettingwrite(username, usercity, user_gender, userdob, useremail, useremailpass):
     try:
-        print("Name: " + username)
-        print("Usercity: " + usercity)
-        print("usergender: " + user_gender)
-        print("userdob: " + userdob)
-        print("useremail: " + useremail)
-        print("useremailpass: " + useremailpass)
-        if username=="":
-            error()
-        if usercity=="":
-            error()
-        if user_gender=="":
-            error()
-        if userdob=="":
-            error()
-        if useremail=="":
-            error()
-        if useremailpass=="":
-            error()
-        else:
-            time.sleep(1)
-            print("Creating a new user profile")
-            f= open("user.txt","w+")
-            f.write("\n")
-            f.write(username)
-            f.write("\n")
-            f.write(usercity)
-            f.write("\n")
-            f.write(user_gender)
-            f.write("\n")
-            f.write(userdob)
-            f.write("\n")
-            f.write(useremail)
-            f.write("\n")
-            f.write(useremailpass)
-            time.sleep(1)
-            f.close()
+        with open('data.json', 'w', encoding='utf-8') as f:
+        #json.dump(data, f, ensure_ascii=False, indent=4)
+            print("Name: " + username)
+            print("Usercity: " + usercity)
+            print("usergender: " + user_gender)
+            print("userdob: " + userdob)
+            print("useremail: " + useremail)
+            print("useremailpass: " + useremailpass)
+            userlist=[{"username": username, "usercity":usercity, "user_gender":user_gender, "userdob":userdob, "useremail":useremail, "useremailpass":useremailpass}]
+            json.dump(userlist, f, ensure_ascii=False, indent=4)
     except Exception as e:
         print(e)
-        reporterror(e, "Open issue oon github")
+        reporterror(e, "Open issue on github")
 if sys.platform in ['win32', 'win64'] and int(platform.release()) >= 10:
 
     eel.start("homesetting.html",cmdline_args=['--start-fullscreen'], port=1111, mode='default')
