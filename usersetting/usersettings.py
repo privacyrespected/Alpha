@@ -56,7 +56,6 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
             json.dump(personal_discord_bot_token, f,ensure_ascii=False, indent=4)
     except Exception as e:
         print(e)
-        reporterror(e, "Open issue on github")
 if sys.platform in ['win32', 'win64'] and int(platform.release()) >= 10:
 
     eel.start("homesetting.html",cmdline_args=['--start-fullscreen'], port=1111, mode='default')
