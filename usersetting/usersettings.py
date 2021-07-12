@@ -9,31 +9,6 @@ import platform
 import json
 #with open('data.json', 'w', encoding='utf-8') as f:
     #json.dump(data, f, ensure_ascii=False, indent=4)
-def reporterror(errorr, suggest):
-    print(errorr)
-    today = date.today()
-    errordate = today.strftime("%d/%m/%Y")
-    now = datetime.now()
-    errortime = now.strftime("%H:%M:%S")
-    f=open("errorlog.txt", "w")
-    f.write("ERROR")
-    f.write("\n")
-    f.write("Error date: "+errordate)
-    f.write("\n")
-    f.write("Error time: "+errortime)
-    f.write("\n")
-    f.write("Error: ")
-    f.write("\n")
-    f.write(errorr)
-    f.write("\n")
-    f.write("Suggestions: ")
-    f.write("\n")
-    f.write(suggest)
-    f.close()
-def error():
-    print("bruh")
-    os.startfile("error.vbs")
-
 eel.init("settingweb")
 
 @eel.expose
