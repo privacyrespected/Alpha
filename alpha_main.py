@@ -145,6 +145,8 @@ swearword=[
     "motherfucker"
     #we need more here!!
 ]
+thenonoword="nigger"
+thenonowordresponse="The N word you just said is considered extremely offensive. I would like to urge you to calm yourself down or I will shut myself down."
 errormessage = ("error")
 print("ALPHA V2.0")
 print("Developed by: NuggetCat ")
