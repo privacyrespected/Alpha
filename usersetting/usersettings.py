@@ -55,11 +55,26 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
                     "userdob": userdob,
                     "useremail":useremail,
                     "useremailpass":useremailpass,
-                    "species": "homo sapien"
-
+                    "userspecies": "homo sapien",
+                    "userbloodtype": "Null",
+                    "userskincolor":"null",
+                    "userethnicity":"null",
+                    "userreligion":"null",
+                    "userweight":"null",
+                    "userheight":"null",
+                    "usersport":"null",
+                    "userhobby":"null",
+                    "userinterest":"null"
+                }
+            }
+            medic_data={
+                "medic_data":{
+                    "username":username
+                    #continue writing data in alpha_main.py
                 }
             }
             json.dump(data, f, ensure_ascii=False, indent=4)
+            json.dump(medic_data, f, ensure_ascii=False, indent=4)
     except Exception as e:
         print(e)
         reporterror(e, "Open issue on github")
