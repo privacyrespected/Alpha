@@ -138,6 +138,13 @@ calculate_triggger=[
     "evaluate",
     "what is",
 ]
+swearword=[
+    "fuck",
+    "shit",
+    "fucker",
+    "motherfucker"
+    #we need more here!!
+]
 errormessage = ("error")
 print("ALPHA V2.0")
 print("Developed by: NuggetCat ")
