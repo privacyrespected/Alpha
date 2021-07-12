@@ -176,7 +176,7 @@ def checknetwork1():
     return current_network
 #load user data
 print("Checking user data...")
-if path.isfile('user.txt') == False:
+if path.isfile('data.json') == False:
     reporterror("User.txt not found", "Run usersettings.exe please")
     os.startfile("hmm.vbs")
     time.sleep(30)

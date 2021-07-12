@@ -47,8 +47,19 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
             print("userdob: " + userdob)
             print("useremail: " + useremail)
             print("useremailpass: " + useremailpass)
-            userlist=[{"username": username, "usercity":usercity, "user_gender":user_gender, "userdob":userdob, "useremail":useremail, "useremailpass":useremailpass}]
-            json.dump(userlist, f, ensure_ascii=False, indent=4)
+            data = {
+                "main_user_data": {
+                    "username": username,
+                    "usercity": usercity,
+                    "usergender":user_gender,
+                    "userdob": userdob,
+                    "useremail":useremail,
+                    "useremailpass":useremailpass,
+                    "species": "homo sapien"
+
+                }
+            }
+            json.dump(data, f, ensure_ascii=False, indent=4)
     except Exception as e:
         print(e)
         reporterror(e, "Open issue on github")
