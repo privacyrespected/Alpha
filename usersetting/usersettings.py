@@ -43,7 +43,7 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
                     "userpersonaldiscordbottoken":"null"
                 }
             }
-            json.dump(data, f, ensure_ascii=False, indent=4)
+            json.dump(data, f, ensure_ascii=False, sort_keys=True, indent=4)
     except Exception as e:
         print(e)
 if sys.platform in ['win32', 'win64'] and int(platform.release()) >= 10:
