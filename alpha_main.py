@@ -194,6 +194,16 @@ with open("data.json", "r") as read_file:
     user_email=main_data["useremail"]
     user_email_password=main_data["useremailpass"]
     user_species=main_data["userspecies"]
+    user_bloodtype=main_data["userbloodtype"]
+    user_skincolor=main_data["userskincolor"]
+    user_ethnicity=main_data["userethnicity"]
+    user_religion=main_data["userreligion"]
+    user_weight=main_data["userweight"]
+    user_height=main_data["userheight"]
+    user_sport=main_data["usersport"]
+    user_hobby=main_data["userhobby"]
+    user_interest=main_data["userinterest"]
+    user_discord=main_data["userpersonaldiscordbottoken"]
     print("Confirming user data")
     print(user_name)
     print(usercity)
@@ -201,6 +211,10 @@ with open("data.json", "r") as read_file:
     print(user_dob)
     print(user_email)
     print(user_email_password)
+    print(user_species)
+    print(user_bloodtype)
+    print(user_skincolor)
+    print(user_ethnicity)
     print("All data confirmed and detected")
 # create an object to ToastNotifier class
 dataconfirm = ToastNotifier()
