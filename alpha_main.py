@@ -184,26 +184,24 @@ if path.isfile('data.json') == False:
     exit()
 #user data reconfirmation in backend
 print("Loading user data.")
-file=open('data.json')
-userdata=json.load(file)
-for i in userdata["main_user_data"]:
-    print(i)
-file = open('user.txt')
-lines = file.readlines()
-user_name=lines[1]
-usercity=lines[2]
-user_gender=lines[3]
-user_dob=lines[4]
-user_email=lines[5]
-user_email_password=lines[6]
-print("Confirming user data")
-print(user_name)
-print(usercity)
-print(user_gender)
-print(user_dob)
-print(user_email)
-print(user_email_password)
-print("All data confirmed and detected")
+with open("data.json", "r") as read_file:
+    userdata = json.load(read_file) 
+    main_data=userdata["main_user_data"]
+    user_name=main_data["username"]
+    usercity=main_data["usercity"]
+    user_gender=main_data["usergender"]
+    user_dob=main_data["userdob"]
+    user_email=main_data["useremail"]
+    user_email_password=main_data["useremailpass"]
+    user_species=main_data["userspecies"]
+    print("Confirming user data")
+    print(user_name)
+    print(usercity)
+    print(user_gender)
+    print(user_dob)
+    print(user_email)
+    print(user_email_password)
+    print("All data confirmed and detected")
 # create an object to ToastNotifier class
 dataconfirm = ToastNotifier()
 dataconfirm.show_toast("Alpha", "User data confirmed", duration = 5, icon_path ="app.ico")
