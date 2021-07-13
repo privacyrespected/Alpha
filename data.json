@@ -1,0 +1,21 @@
+{
+    "main_user_data": {
+        "username": "Meow ZeDong",
+        "usercity": "Hong Kong",
+        "usergender": "Male",
+        "userdob": "2005-12-10",
+        "useremail": "meowzedong@gmail.com",
+        "useremailpass": "meowmeow123!!",
+        "userspecies": "homo sapien",
+        "userbloodtype": "Null",
+        "userskincolor": "null",
+        "userethnicity": "null",
+        "userreligion": "null",
+        "userweight": "null",
+        "userheight": "null",
+        "usersport": "null",
+        "userhobby": "null",
+        "userinterest": "null",
+        "userpersonaldiscordbottoken": "null"
+    }
+}

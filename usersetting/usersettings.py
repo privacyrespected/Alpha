@@ -9,7 +9,7 @@ import platform
 import json
 #with open('data.json', 'w', encoding='utf-8') as f:
     #json.dump(data, f, ensure_ascii=False, indent=4)
-eel.init("settingweb")
+eel.init("usersetting/settingweb")
 
 @eel.expose
 def usersettingwrite(username, usercity, user_gender, userdob, useremail, useremailpass):
