@@ -33,6 +33,7 @@ import requests
 from bs4 import BeautifulSoup
 import sys
 import operator
+import json
 #syntax alarm(hour, minute)
 try:
     import webbrowser
@@ -183,8 +184,10 @@ if path.isfile('data.json') == False:
     exit()
 #user data reconfirmation in backend
 print("Loading user data.")
-print("\n")
-print("\n")
+file=open('data.json')
+userdata=json.load(file)
+for i in userdata["main_user_data"]:
+    print(i)
 file = open('user.txt')
 lines = file.readlines()
 user_name=lines[1]
