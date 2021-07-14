@@ -261,12 +261,22 @@ def discord_bot():
         print(token)
         print("Token confirmed, Initiating discord bot")
         speak("Token confirmed, initiating discord bot")
-        client = discord.Client()
-        client=commands.Bot(command_prefix="!")
-        @client.event
+        bot = commands.Bot(command_prefix="$")
+        bot.remove_command('help')
+        @bot.event
         async def on_ready():
             speak("Discord bot has connected to the internet")
-        
+            await bot.change_presence(activity=discord.Game("Alpha V2"))
+        @bot.command(name="ping")
+        @commands.cooldown(1, 1,commands.BucketType.user)
+        async def ping(ctx: commands.Context):
+            await ctx.send(f"Pwaaaaa! {round(bot.latency * 1000)}ms")
+        @bot.event
+        async def on_command_error(ctx, error):
+            if isinstance(error, commands.CommandOnCooldown):
+                embedVar=discord.Embed(title="Error: Too frequent requests", color=0xff0000)
+                embedVar.add_field(name="Are you spamming?", value=f"Try again after {round(error.retry_after, 2)} seconds!")
+                await ctx.send(embed=embedVar)
 def dictionary(word):
     from bs4 import BeautifulSoup
     word = str(word)
