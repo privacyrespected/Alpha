@@ -577,6 +577,14 @@ def alpha_frontend():
         eel.start("index.html",cmdline_args=['--start-fullscreen'], port=4000, mode='default')
     else:
         raise EnvironmentError('Error: System is not Windows 10 or above')
+def adddata():
+    with open("data.json", "r") as read_file:
+        userdata = json.load(read_file)
+        userdata = str(userdata)
+        if "null" in userdata:
+            notify("Complete your profile!", "By completing your profile you can access more features! Just tell Alpha to 'update your information' and you can update your info!", duration=20)
+        else:
+            print("All data clear and good")
 #initiate functions
 if __name__ == "__main__":
     print("started")
@@ -585,8 +593,10 @@ if __name__ == "__main__":
     random_functions = random.randint(1,2)
     if int(random_functions) == 1:
         wishMe()
+        adddata()
     elif int(random_functions) == 2:
         wishme2()
+        adddata()
     try:
         Thread(target=alphamain).start()
         Thread(target=alpha_frontend).start()
