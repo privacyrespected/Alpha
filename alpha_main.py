@@ -271,6 +271,12 @@ def discord_bot():
         @commands.cooldown(1, 1,commands.BucketType.user)
         async def ping(ctx: commands.Context):
             await ctx.send(f"Pwaaaaa! {round(bot.latency * 1000)}ms")
+        @bot.command(name="About")
+        @commands.cooldown(1,1, commands.BucketType.user)
+        async def help(ctx: commands.Context):
+            print("about discord bot")
+            await ctx.send(f"This is the personal bot of {user_name} powered by Alpha V2")
+            
         @bot.event
         async def on_command_error(ctx, error):
             if isinstance(error, commands.CommandOnCooldown):
