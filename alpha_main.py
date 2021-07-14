@@ -401,15 +401,13 @@ def sing2():
 def alarm(hour, minute): 
     print(hour)
     print(minute)
-
     # Verify whether time entered is correct or not.
     def verify_alarm(hour,minute,seconds):
         if((hour>=0 and hour<=23) and (minute>=0 and minute<=59) and (seconds>=0 and seconds<=59)):
             return True
         else:
             return False
-def getnews():
-    
+def getnews(): 
     # url definition
     url = "https://www.theguardian.com/uk"
     
