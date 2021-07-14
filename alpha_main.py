@@ -2,6 +2,9 @@
 def reporterror(errorr, suggest):
     print(errorr + suggest)
 #import modules
+import discord
+from discord import channel
+from discord.ext import commands
 from sys import excepthook
 import pyttsx3
 import os
@@ -24,6 +27,7 @@ import pandas as pd
 import numpy as np
 from threading import Thread
 import platform
+import discord
 import psutil
 from win10toast import ToastNotifier
 from bs4 import BeautifulSoup as bs
@@ -257,6 +261,11 @@ def discord_bot():
         print(token)
         print("Token confirmed, Initiating discord bot")
         speak("Token confirmed, initiating discord bot")
+        client = discord.Client()
+        client=commands.Bot(command_prefix="!")
+        @client.event
+        async def on_ready():
+            speak("Discord bot has connected to the internet")
         
 def dictionary(word):
     from bs4 import BeautifulSoup
