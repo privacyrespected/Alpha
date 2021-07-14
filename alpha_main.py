@@ -284,7 +284,7 @@ def wishMe():
         speak("Good Evening!")  
     file=open("user.txt","r")
     file.readlines
-    if "Male" in lines[6]:
+    if "Male" in user_gender:
         speak("I am Alpha! Sir, Please tell me how may I help you")
         print("I am Alpha")
     else:
