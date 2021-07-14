@@ -248,6 +248,16 @@ def listen():
         print("Audio not heard, plesae try again")
         return "None"
     return query
+#discord bot
+def discord_bot():
+    if user_discord == "null":
+        speak("You don't seem to have a discord bot token. You can read one by reading our manual")
+    else:
+        token= user_discord
+        print(token)
+        print("Token confirmed, Initiating discord bot")
+        speak("Token confirmed, initiating discord bot")
+        
 def dictionary(word):
     from bs4 import BeautifulSoup
     word = str(word)
