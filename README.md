@@ -69,7 +69,7 @@ Alpha V1-V1.3 will not be released due to instability
 
 # Developer Notes
 
-## Packaging into EXE 
+### Packaging into EXE 
 You can easily do that with the help of pyinstaller with the following commands in terminal.
 Installing dependencies
 ```
