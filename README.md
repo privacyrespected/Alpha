@@ -50,7 +50,7 @@ For coders:
 7. [x] No plans to implemenent Chinese
 8. [ ] Implement coronavirus live tracking
 9. [ ] News
-10. [ ] How long have Xi been Communist party's leader tracker
+10. [x] How long have Xi been Communist party's leader tracker (removed...He's been the leader for too long)
 
 # Privacy and piracy
 1. WE do not hide backend as seen in our source code.
