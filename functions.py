@@ -323,6 +323,7 @@ def getnews():
          'Article Link': list_links,
          'Newspaper': 'The Guardian'})    
     print(df_features + df_show_info)
+    speak(df_features + df_show_info)
     return (df_features, df_show_info)
 
 def wikipedia(word):

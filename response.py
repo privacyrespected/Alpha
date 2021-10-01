@@ -112,7 +112,10 @@ extrawords=[
     "can you",
     "please",
     "would you mind",
-    "do you mind"
+    "do you mind",
+    "tell me",
+    "let me know",
+    "you"
 ]
 whwords=[
     "what",
@@ -138,7 +141,11 @@ do=[
     "do",
     "does"
 ]
-
+articleseng=[
+    "a",
+    "an",
+    "the"
+]
 meaningextrawords=[
     "what",
     "who",
@@ -154,4 +161,11 @@ meaningextrawords=[
 mean=[
     "means",
     "mean"
+]
+#YES THERE ARE SOME EXCEPTIONS NOT ALL OF THEM ARE PREPOSITIONS FOR FUCKS SAKE
+prepsplace=[
+    "in",
+    "on",
+    "at",
+    "of",
 ]
