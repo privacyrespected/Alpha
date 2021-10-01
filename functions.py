@@ -129,13 +129,14 @@ def listen():
 def dictionary(word):
     from bs4 import BeautifulSoup
     word = str(word)
-    speak("Pronounced as" + word)
+
     url = "http://dictionary.cambridge.org/dictionary/british/" + word.lower()
     r = requests.get(url)
     soup = BeautifulSoup(r.content)
-    word = soup.find("span", {"class": "pos"}).text
-    definition = soup.find("span", {"class": "def"}).text
-    speak("It is usually used as a " +word)
+    wordform = soup.find("span", {"class": "pos"}).text
+    definition = soup.find("span", {"class": "def"}).text    
+    speak("Pronounced as" + word)
+    speak("It is usually used as a " +wordform)
     speak("It means"+definition)
 def get_operator_fn(op):
     return {
@@ -323,3 +324,6 @@ def getnews():
          'Newspaper': 'The Guardian'})    
     print(df_features + df_show_info)
     return (df_features, df_show_info)
+
+def wikipedia(word):
+    wikipedia.summary(word, sentences=2, auto_suggest=False)

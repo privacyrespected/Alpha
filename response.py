@@ -114,3 +114,44 @@ extrawords=[
     "would you mind",
     "do you mind"
 ]
+whwords=[
+    "what",
+    "who",
+    "when",
+    "why",
+    "where"
+]
+be=[
+    "is",
+    "am",
+    'are',
+    "was",
+    "were"
+]
+has=[
+    "has",
+    "have",
+    "have been",
+    "has been"
+]
+do=[
+    "do",
+    "does"
+]
+
+meaningextrawords=[
+    "what",
+    "who",
+    "do",
+    "does",
+    "is",
+    "am",
+    "are",
+    "a",
+    "an",
+    "the"
+]
+mean=[
+    "means",
+    "mean"
+]

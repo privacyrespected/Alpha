@@ -9,6 +9,7 @@ import eel
 eel.init("web")  
 
 @eel.expose
+#eel functions specifically for eel gui
 def checkram():
     memory_info=psutil.virtual_memory()
     current_ram = "Ram: " + str(memory_info.percent)+"%"
@@ -26,6 +27,8 @@ def checknetwork1():
     checknetwork= str(checknetwork)
     current_network="Battery: " + checknetwork + "%"
     return current_network
+
+
 #this function starts eel frontend
 def alpha_frontend():
     #check system 
@@ -36,6 +39,8 @@ def alpha_frontend():
     else:
         #ono error happened
         raise EnvironmentError('Error: System is not Windows 10 or above')
+
+
 def alphamain():
     while True:
         query= listen().lower()
@@ -47,6 +52,22 @@ def alphamain():
                 continue
         #continue all your if else statement here
 
+        #the information function
+        for check in meaningextrawords:
+            if check in query:
+                query=query.replace(check,"")
+            else:
+                for check in mean:
+                    if check in query:
+                        query=query.replace("mean","")
+                        dictionary(query)
+                    else:
+                        if wikipedia.page(query) is None:
+                            print("no wikipedia page")
+                            speak("My current abilities do not enable me to define the question for you")
+                            speak("I am sorry")
+                        else:
+                            print(wikipedia.summary(query, sentences=2))
 
 
 
