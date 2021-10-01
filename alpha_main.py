@@ -1,6 +1,5 @@
 from functions import *
-
-
+from response import *
 print("ALPHA V2.0")
 print("Developed by: NuggetCat ")
 print("Email: nuggetcatsoftware@gmail.com")
@@ -27,3 +26,11 @@ def checknetwork1():
     checknetwork= str(checknetwork)
     current_network="Battery: " + checknetwork + "%"
     return current_network
+
+def alphamain():
+    while True:
+        query= listen().lower()
+        for extracheck in extrawords:
+            if extracheck in query:
+                query=query.replace(extracheck,"")
+                

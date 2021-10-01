@@ -107,3 +107,10 @@ swearword=[
 ]
 thenonoword="nigger"
 thenonowordresponse="The N word you just said is considered extremely offensive. I would like to urge you to calm yourself down or I will shut myself down."
+
+extrawords=[
+    "can you",
+    "please",
+    "would you mind",
+    "do you mind"
+]

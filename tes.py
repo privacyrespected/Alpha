@@ -1,12 +1,26 @@
+from urllib.parse import quote_from_bytes
+
+
 list=[
-    "1",
-    "2",
-    "3",
-    "4"
+    "a",
+    "b",
+    "c",
+    "d"
 ]
 while True:
     word =input(">> ")
-    if word in list:
-        print("The word is in the list!")
-    else:
-        print("The word is not in the list!")
+    for check in list:
+        if check in word:
+            print("The word is in the list!")
+            word=word.replace(check,"")
+            print(word)
+            
+        else:
+            continue
+    print("Done")
+        
+
+import geocoder
+
+g = geocoder.ip('me')
+print(g.latlng)
