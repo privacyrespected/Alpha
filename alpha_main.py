@@ -38,6 +38,7 @@ import sys
 import operator
 import json
 from response import *
+from functions import *
 #syntax alarm(hour, minute)
 try:
     import webbrowser
@@ -119,6 +120,42 @@ with open("data.json", "r") as read_file:
 # create an object to ToastNotifier class
 dataconfirm = ToastNotifier()
 dataconfirm.show_toast("Alpha", "User data confirmed", duration = 5, icon_path ="app.ico")
+import discord
+from discord import channel
+from discord.ext import commands
+from sys import excepthook
+import pyttsx3
+import os
+import wikipedia
+import time
+import os
+import os.path
+from os import error, path
+import eel
+from datetime import date
+import speech_recognition as sr
+import datetime
+import datetime
+import os
+import time
+import random
+import csv
+from pygame import mixer
+import pandas as pd
+import numpy as np
+from threading import Thread
+import platform
+import discord
+import psutil
+from win10toast import ToastNotifier
+from bs4 import BeautifulSoup as bs
+import requests
+import time
+import requests
+from bs4 import BeautifulSoup
+import sys
+import operator
+import json
 def notify(title, content, duration):
     dataconfirm = ToastNotifier()
     icon_path="app.ico"
