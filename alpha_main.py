@@ -78,8 +78,6 @@ def alphamain():
                 else:
                     weathermain(usercity)
         
-        #elif starts here
-        
         #screenshot function
         elif "a screenshot" in query:
             screenshot()
