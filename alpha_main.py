@@ -48,6 +48,9 @@ def alphamain():
         for extracheck in extrawords:
             if extracheck in query:
                 query=query.replace(extracheck,"")
+                for check in articleseng:
+                    if check in query:
+                        query=query.replace(check,"")
             else:
                 continue
         #continue all your if else statement here
@@ -69,6 +72,23 @@ def alphamain():
                         else:
                             print(wikipedia.summary(query, sentences=2))
 
+
+
+        #the weather function
+        if "weather" in query:
+            for check in prepsplace:
+                if check in query:
+                    query=query.replace(check,"")
+                    for check in meaningextrawords:
+                        if check in query:
+                            query=query.replace(check,"")
+                            weathermain(query)
+                        else:
+                            weathermain(usercity)
+                else:
+                    weathermain(usercity)
+        
+        
 
 
 
