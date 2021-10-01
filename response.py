@@ -148,15 +148,14 @@ articleseng=[
 ]
 meaningextrawords=[
     "what",
-    "who",
-    "do",
     "does",
     "is",
     "am",
     "are",
     "a",
     "an",
-    "the"
+    "the",
+    "for"
 ]
 mean=[
     "means",

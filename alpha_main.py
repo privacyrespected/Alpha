@@ -55,27 +55,17 @@ def alphamain():
                 continue
         #continue all your if else statement here
 
-        #the information function
-        for check in meaningextrawords:
-            if check in query:
-                query=query.replace(check,"")
-            else:
-                for check in mean:
-                    if check in query:
-                        query=query.replace("mean","")
-                        dictionary(query)
-                    else:
-                        if wikipedia.page(query) is None:
-                            print("no wikipedia page")
-                            speak("My current abilities do not enable me to define the question for you")
-                            speak("I am sorry")
-                        else:
-                            print(wikipedia.summary(query, sentences=2))
-
+        #the dictionary function
+        if "meaning" in query:
+            for check in meaningextrawords:
+                if check in query:
+                    query=query.replace(check,"")
+                else:
+                    dictionary(query)
 
 
         #the weather function
-        if "weather" in query:
+        elif "weather" in query:
             for check in prepsplace:
                 if check in query:
                     query=query.replace(check,"")
@@ -97,6 +87,7 @@ def alphamain():
         #news function
         elif "news" in query:
             getnews()
+
 
 
 
