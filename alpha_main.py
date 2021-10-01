@@ -26,11 +26,52 @@ def checknetwork1():
     checknetwork= str(checknetwork)
     current_network="Battery: " + checknetwork + "%"
     return current_network
-
+#this function starts eel frontend
+def alpha_frontend():
+    #check system 
+    if sys.platform in ['win32', 'win64'] and int(platform.release()) >= 10:
+        print("Start frontend")
+        #start tthe frontend functions
+        eel.start("index.html",cmdline_args=['--start-fullscreen'], port=4000, mode='default')
+    else:
+        #ono error happened
+        raise EnvironmentError('Error: System is not Windows 10 or above')
 def alphamain():
     while True:
         query= listen().lower()
+        #this line checks for unneccessary words that may confuse the bot
         for extracheck in extrawords:
             if extracheck in query:
                 query=query.replace(extracheck,"")
-                
+            else:
+                continue
+        #continue all your if else statement here
+
+
+
+
+
+
+
+
+
+
+
+
+
+#initiate functions
+if __name__ == "__main__":
+    print("started")
+    import random
+    print(random.randint(1,2))
+    random_functions = random.randint(1,2)
+    if int(random_functions) == 1:
+        wishMe()
+    elif int(random_functions) == 2:
+        wishme2()
+    try:
+        Thread(target=alphamain).start()
+        Thread(target=alpha_frontend).start()
+    except Exception as e:
+        print(e)
+        reporterror(e, "github it or ask a cat")
