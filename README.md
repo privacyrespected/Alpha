@@ -39,19 +39,6 @@ For coders:
 8. Rickroll you
 9. And more
 
-# Todo
-
-1. [ ] Implement calculator
-2. [ ] Implement urban dictionary search
-3. [ ] Implement stack overflow web scraping
-4. [ ] Implement traffic and location services
-5. [ ] Code cleanup
-6. [ ] Implment dictionary (both the one in python and in English)
-7. [x] No plans to implemenent Chinese
-8. [ ] Implement coronavirus live tracking
-9. [ ] News
-10. [x] How long have Xi been Communist party's leader tracker (removed...He's been the leader for too long)
-
 # Privacy and piracy
 1. WE do not hide backend as seen in our source code.
 2. Currently, we have noticed that an inferior socialist supporter, namely, [Meow Zhe Dong] is attempting to commit piracy for burgers. Beware of him.
