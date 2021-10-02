@@ -117,12 +117,40 @@ extrawords=[
     "let me know",
     "you"
 ]
-whwords=[
+whwords1=[
     "what",
-    "who",
-    "when",
-    "why",
+    "who"
+]
+#location
+whwords2=[
     "where"
+]
+#time sensitive, ie. events
+whwords3=[
+    "when"
+]
+#reasoning, the trickiest one
+whwords4=[
+    "why"
+]
+puncuations=[
+    "`",
+    "~",
+    "!",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    "-",
+    "+",
+    "?",
+    ".",
+    ","
+
 ]
 be=[
     "is",
