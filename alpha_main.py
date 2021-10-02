@@ -53,7 +53,23 @@ def alphamain():
                         query=query.replace(check,"")
             else:
                 continue
-        #continue all your if else statement here
+
+        for sysinfotrigger in sysinfo:
+            if sysinfotrigger in query:
+                speak("Okay, here are your system information. Please wait a moment")
+                file=open("user.txt","r")
+                lines = file.readlines
+                if "Male" in lines[6]:
+                    speak("sir")
+                else:
+                    speak("Madam")
+                os.system("systeminfo.exe")
+        for calculator in calculate_triggger:
+            if calculator in query:
+                query=query.replace(calculator,"")
+                query= str(query)
+                print(eval_binary_expr(*(query.split())))
+                speak(eval_binary_expr(*(query.split())))
 
         #the dictionary function
         if "meaning" in query:
@@ -85,11 +101,27 @@ def alphamain():
         #news function
         elif "news" in query:
             getnews()
+        
+        #open youtbube
+        elif 'youtube' in query:
+            speak("Opening youtube")
+            webbrowser.open("www.youtube.com")
 
 
+        #check the time
+        elif 'the time' in query:
+            strTime = datetime.datetime.now().strftime("%H:%M:%S") 
+            if user_gender == "Male":
+                speak(f"Sir, the time is {strTime}")
+            else:
+                speak(f"Madam, the time is {strTime}")
 
-
-
+        else:
+            speak(random.choice(understandnt))
+            understanderror="Unable to comprehend command: " +str(query)
+            understanderror=str(understanderror)
+            reporterror(understanderror, "try different voice commands")
+            return
 
 
 
