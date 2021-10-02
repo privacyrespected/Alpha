@@ -51,7 +51,7 @@ def alphamain():
                 query=re.sub(extra, "", query)
             else:
                 continue
-            
+        
 
 
 
