@@ -72,12 +72,7 @@ def alphamain():
             #what condition... what has too many possible combinations
             if re.search("what", query):
                 query=re.sub("what","",query)
-                #meaning condition-checks for the word meaning and run a definition search
-                for m in mean:
-                    if re.search(m,query):
-                        for d in do:
-                            if re.search(d, query):
-                                query=re.sub(d,"",query)
+                
                                     
                                 
 

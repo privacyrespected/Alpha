@@ -115,7 +115,8 @@ extrawords=[
     "do you mind",
     "tell me",
     "let me know",
-    "you"
+    "you",
+    "alpha"
 ]
 whwords1=[
     "what",
@@ -187,8 +188,8 @@ meaningextrawords=[
     "for"
 ]
 mean=[
-    "means",
-    "mean"
+    " means",
+    " mean"
 ]
 #YES THERE ARE SOME EXCEPTIONS NOT ALL OF THEM ARE PREPOSITIONS FOR FUCKS SAKE
 prepsplace=[
