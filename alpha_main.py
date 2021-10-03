@@ -78,6 +78,7 @@ def alphamain():
                         for d in do:
                             if re.search(d, query):
                                 query=re.sub(d,"",query)
+                                    
                                 
 
 

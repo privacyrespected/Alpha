@@ -31,7 +31,7 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
                     "useremail":useremail,
                     "useremailpass":useremailpass,
                     "userspecies": "homo sapien",
-                    "userbloodtype": "Null",
+                    "userbloodtype": "null",
                     "userskincolor":"null",
                     "userethnicity":"null",
                     "userreligion":"null",
@@ -40,7 +40,8 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
                     "usersport":"null",
                     "userhobby":"null",
                     "userinterest":"null",
-                    "userpersonaldiscordbottoken":"null"
+                    "userpersonaldiscordbottoken":"null",
+                    "dictpref":"british"
                 }
             }
             json.dump(data, f, ensure_ascii=False, sort_keys=True, indent=4)
