@@ -166,8 +166,9 @@ has=[
     "has been"
 ]
 do=[
-    "do",
-    "does"
+    #many str words overlap with do, adding space so do is indicated as one separate word
+    " do ",
+    " does "
 ]
 articleseng=[
     "a",

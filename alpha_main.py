@@ -45,30 +45,40 @@ def alpha_frontend():
 def alphamain():
     while True:
         query= listen().lower()
-        #puncuation problems that can commonly cause problems
-        for punc in puncuations:
-            if re.search(punc, query):
-                query=re.sub(punc,"", query)
-            else:
-                continue
-        #deletes additional spaces that causes problems
-        if "  " in query:
-            query=re.sub("  ","",query)
-        else:
+        #this line reduces errors and warnings for "cant listen" and doesnt breaks the program
+        if query is None:
+            print("Null query received, looping")
             continue
-        #this line checks for unneccessary words that may confuse the bot
-        for extra in extrawords:
-            if re.search(extra, query):
-                query=re.sub(extra, "", query)
+            #continue listening until else statement is fulfilled
+        else:
+            #puncuation problems that can commonly cause problems
+            for punc in puncuations:
+                if re.search(punc, query):
+                    query=re.sub(punc,"", query)
+                else:
+                    continue
+            #deletes additional spaces that causes problems
+            if "  " in query:
+                query=re.sub("  ","",query)
             else:
                 continue
-        #this line defines the logic path for questions that demands a definition
-        #these wh words include what and who
-        for question in whwords1:
-            if re.search(question, query):
-                query=re.sub(extra,"",query)
-
-
+            #this line checks for unneccessary words that may confuse the bot
+            for extra in extrawords:
+                if re.search(extra, query):
+                    query=re.sub(extra, "", query)
+                else:
+                    continue
+            #this line defines the logic path for questions that demands a definition
+            #what condition... what has too many possible combinations
+            if re.search("what", query):
+                query=re.sub("what","",query)
+                #meaning condition-checks for the word meaning and run a definition search
+                for m in mean:
+                    if re.search(m,query):
+                        for d in do:
+                            if re.search(d, query):
+                                query=re.sub(d,"",query)
+                                
 
 
 
