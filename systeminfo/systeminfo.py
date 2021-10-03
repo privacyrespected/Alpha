@@ -9,6 +9,7 @@ partition_info=psutil.disk_partitions()
 
 memory_info=psutil.virtual_memory()
 print(memory_info)
+#THIS NEED TO BE CHANGED WHEN EDITING IN VS CODE MAKE SURE YOU CHANGE IT BACK WHEN YOU COMPILE IT
 eel.init("sysweb")
 @eel.expose
 def generate_data():
