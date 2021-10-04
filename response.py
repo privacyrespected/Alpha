@@ -115,7 +115,8 @@ extrawords=[
     "tell me",
     "let me know",
     "you",
-    "alpha"
+    "alpha",
+    "telling me"
 ]
 whwords1=[
     "what",
