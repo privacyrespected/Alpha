@@ -63,7 +63,6 @@ def alphamain():
                 continue
 
 
-
             #failsafe codes
             #puncuation problems that can commonly cause problems
             for punc in puncuations:
@@ -77,6 +76,12 @@ def alphamain():
             else:
                 continue
             
+            #These lines removes confusing/unnecessary words from query so that it can be understood easily
+            for extra in extrawords:
+                if re.search(extra,query):
+                    re.sub(extra,"",query)
+                else:
+                    continue
             
             
             #functional codes
