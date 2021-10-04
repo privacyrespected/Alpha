@@ -62,18 +62,7 @@ def alphamain():
                 query=re.sub("  ","",query)
             else:
                 continue
-            #this line checks for unneccessary words that may confuse the bot
-            for extra in extrawords:
-                if re.search(extra, query):
-                    query=re.sub(extra, "", query)
-                else:
-                    continue
-            #this line defines the logic path for questions that demands a definition
-            #what condition... what has too many possible combinations
-            if re.search("what", query):
-                query=re.sub("what","",query)
-                
-                                    
+           
                                 
 
 
