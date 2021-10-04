@@ -326,4 +326,5 @@ def getnews():
     return (df_features, df_show_info)
 
 def wikipedia(word):
-    wikipedia.summary(word, sentences=2, auto_suggest=False)
+    out=wikipedia.summary(word, sentences=2, auto_suggest=False)
+    speak(out)

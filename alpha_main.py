@@ -45,7 +45,7 @@ def alpha_frontend():
 def alphamain():
     while True:
         query= listen().lower()
-
+        #MAKE SURE YOU DONT CAPLOCK IF CONDITIONS OR SHIT WONT WORK KEKW
         #this line reduces errors and warnings for "cant listen" and doesnt breaks the program
         if query is None:
             print("Null query received, looping")
@@ -83,11 +83,18 @@ def alphamain():
                 else:
                     continue
             
+            #Part A functional codes
             
-            #functional codes
-            
+            #Part A1. definitions code sector
 
-            #what condition
+            #A1.1: Direct function call (calls dictionary function on command)
+            #dictionary
+            if query.startswith("dictionary"):
+                re.sub("dictionary","",query)
+                dictionary(query)
+            elif query.startswith('wikipedia'):
+                re.sub("wikipedia","",query)
+                wikipedia(query)
 
 
 
