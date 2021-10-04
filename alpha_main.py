@@ -45,12 +45,26 @@ def alpha_frontend():
 def alphamain():
     while True:
         query= listen().lower()
+
         #this line reduces errors and warnings for "cant listen" and doesnt breaks the program
         if query is None:
             print("Null query received, looping")
             continue
             #continue listening until else statement is fulfilled
+
+        #runs this when it sees a query string
         else:
+            #checks if its a function call and remind itself later 
+            #because we will be deleting this string from query while processing it
+            
+            if query.startswith("can you"):
+                var_function_call="True"
+            else:
+                continue
+
+
+
+            #failsafe codes
             #puncuation problems that can commonly cause problems
             for punc in puncuations:
                 if re.search(punc, query):
@@ -58,12 +72,18 @@ def alphamain():
                 else:
                     continue
             #deletes additional spaces that causes problems
-            if "  " in query:
+            if re.search("  ",query):
                 query=re.sub("  ","",query)
             else:
                 continue
-           
-                                
+            
+            
+            
+            #functional codes
+            
+
+            #what condition
+
 
 
 
