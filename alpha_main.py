@@ -95,8 +95,15 @@ def alphamain():
             elif query.startswith('wikipedia'):
                 re.sub("wikipedia","",query)
                 wikipedia(query)
-
-
+            #A1.2: Indirect function calls (calls the function but  in a more human way)
+            elif "search the dictionary for" in query:
+                re.sub("search the dictionary for","",query)
+                dictionary(query)
+            elif "check the dictionary for" in query:
+                re.sub("check the dictionary for","",query)
+                dictionary(query)
+            #no such thing for wikipedia as wikipedia isn't a verb and cannot be used in indirect function call
+            
 
 
 
