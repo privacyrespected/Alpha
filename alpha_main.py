@@ -108,6 +108,18 @@ def alphamain():
                 #replaces the word what
                 if query.startswith("is"): #this is the is conditionss
                     re.sub("is","",query)    
+                    for art in articleseng:
+                        if query.startswith(art):
+                            #what is an apple situation
+                            re.sub(art,"",query)
+                            try:
+                                dictionary(query)
+                            except Exception as e:
+                                print(e)#if this doesn't work this will!
+                                wikipedia(query)#hopefully
+                        else:
+                            continue
+                    #is condition 2!!
 
 
 

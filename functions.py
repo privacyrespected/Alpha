@@ -1,6 +1,7 @@
 def reporterror(errorr, suggest):
     print(errorr + suggest)
 #import modules
+from math import e
 import discord
 from discord import channel
 from discord.ext import commands
@@ -127,6 +128,7 @@ def listen():
     return query
 
 def dictionary(word):
+
     from bs4 import BeautifulSoup
     word = str(word)
 
@@ -138,6 +140,7 @@ def dictionary(word):
     speak("Pronounced as" + word)
     speak("It is usually used as a " +wordform)
     speak("It means"+definition)
+
 def get_operator_fn(op):
     return {
         '+' : operator.add,
