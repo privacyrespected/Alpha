@@ -161,7 +161,7 @@ def alphamain():
                         continue
 
                 #THIS FUCKING LINES OF CODE NEEDS TO BE FIXED BECAUSE I JUST COPY AND PASTED IT WHICH IS BAD
-                
+                #HELP
 
 #initiate functions
 if __name__ == "__main__":
