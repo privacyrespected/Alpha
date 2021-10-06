@@ -198,3 +198,9 @@ prepsplace=[
     "at",
     "of",
 ]
+meaningvar=[
+    "the meaning of",
+    "the meaning for",
+    "the definition of",
+    "the definition for"
+]

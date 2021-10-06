@@ -119,9 +119,17 @@ def alphamain():
                                 wikipedia(query)#hopefully
                         else:
                             continue
-                    #is condition 2!!
-
-
+                    #is condition 2!! #is meaning condition
+                    for mean in meaningvar:
+                        if query.startswith(mean):
+                            re.sub(mean,"",query)
+                            try:
+                                dictionary(query)
+                            except Exception as e:
+                                print(e)#if this doesn't work this will!
+                                wikipedia(query)#hopefully
+                    
+                    #condition 3 Can you do sth (indirect func call)
 
 #initiate functions
 if __name__ == "__main__":
