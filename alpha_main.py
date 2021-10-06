@@ -103,7 +103,11 @@ def alphamain():
                 re.sub("check the dictionary for","",query)
                 dictionary(query)
             #no such thing for wikipedia as wikipedia isn't a verb and cannot be used in indirect function call
-            
+            elif query.startswith("what"):
+                re.sub("what","",query)
+                #replaces the word what
+                if query.startswith("is"): #this is the is conditionss
+                    re.sub("is","",query)    
 
 
 
