@@ -1,3 +1,4 @@
+from urllib.parse import quote_from_bytes
 from functions import *
 from response import *
 import re
@@ -115,6 +116,26 @@ def alphamain():
                         break
             else:
                 break
+        
+        elif query.startswith("who"): #who situation
+            re.sub("who","",query)
+            for who in whopast: #historic people
+                if who in whopast:
+                    re.sub(who,"",query)
+                    wikipedia(query)
+                else:
+                    break
+            for whoo in whopresent:
+                if whoo in query:
+                    re.sub(whoo,"",query)
+                    if query.startswith(" you"):
+                        speak("I am Alpha. your personal assistant. You can view my abilities by asking me what I can do.")
+                    else:
+                        wikipedia(query)
+                else:
+                    break
+            #currently missing here: contact function
+
 
 #initiate functions
 if __name__ == "__main__":

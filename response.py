@@ -211,3 +211,12 @@ indirect_func_call_meaning=[
     "check the dictionary for "
 
 ]
+whopast=[
+    "was",
+    "were"
+]
+whopresent=[
+    "is",
+    "am",
+    "are"
+]
