@@ -66,7 +66,7 @@ def alphamain():
             #failsafe codes
             #puncuation problems that can commonly cause problems
             for punc in puncuations:
-                if re.search(punc, query):
+                if punc :
                     query=re.sub(punc,"", query)
                 else:
                     continue
@@ -131,37 +131,7 @@ def alphamain():
                 elif query.startswith("define"):
                     #oops looks like var_func_call isnt needed
                     #rip car_func_call
-
-                    if query.startswith("what"):
-                        re.sub("what","",query)
-                        #replaces the word what
-                        if query.startswith("is"): #this is the is conditionss
-                            re.sub("is","",query)    
-                            for art in articleseng:
-                                if query.startswith(art):
-                                    #what is an apple situation
-                                    re.sub(art,"",query)
-                                    try:
-                                        dictionary(query)
-                                    except Exception as e:
-                                        print(e)#if this doesn't work this will!
-                                        wikipedia(query)#hopefully
-                                else:
-                                    continue
-                            #is condition 2!! #is meaning condition
-                            for mean in meaningvar:
-                                if query.startswith(mean):
-                                    re.sub(mean,"",query)
-                                    try:
-                                        dictionary(query)
-                                    except Exception as e:
-                                        print(e)#if this doesn't work this will!
-                                        wikipedia(query)#hopefully
-                    else: 
-                        continue
-
-                #THIS FUCKING LINES OF CODE NEEDS TO BE FIXED BECAUSE I JUST COPY AND PASTED IT WHICH IS BAD
-                #HELP
+                    re.sub("define","",query)
 
 #initiate functions
 if __name__ == "__main__":
