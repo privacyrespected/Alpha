@@ -103,8 +103,9 @@ def alphamain():
                 re.sub("check the dictionary for","",query)
                 dictionary(query)
             #no such thing for wikipedia as wikipedia isn't a verb and cannot be used in indirect function call
-            elif query.startswith("what"):
-                re.sub("what","",query)
+            elif query.startswith("what") or query.startswith("define"): #add a line for indirect function call
+                if re.search("what",query):
+                    re.sub("what","",query)
                 #replaces the word what
                 if query.startswith("is"): #this is the is conditionss
                     re.sub("is","",query)    
@@ -128,10 +129,6 @@ def alphamain():
                             except Exception as e:
                                 print(e)#if this doesn't work this will!
                                 wikipedia(query)#hopefully
-                elif query.startswith("define"):
-                    #oops looks like var_func_call isnt needed
-                    #rip car_func_call
-                    re.sub("define","",query)
 
 #initiate functions
 if __name__ == "__main__":
