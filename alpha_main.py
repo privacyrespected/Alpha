@@ -47,95 +47,90 @@ def alphamain():
         query= listen().lower()
         #MAKE SURE YOU DONT CAPLOCK IF CONDITIONS OR SHIT WONT WORK KEKW
         #this line reduces errors and warnings for "cant listen" and doesnt breaks the program
-        if query is None:
-            print("Null query received, looping")
-            continue
-            #continue listening until else statement is fulfilled
 
-        #runs this when it sees a query string
+        #checks if its a function call and remind itself later 
+        #because we will be deleting this string from query while processing it
+        
+        if query.startswith("can you"):
+            var_function_call="True"
         else:
-            #checks if its a function call and remind itself later 
-            #because we will be deleting this string from query while processing it
-            
-            if query.startswith("can you"):
-                var_function_call="True"
+            continue
+
+
+        #failsafe codes
+        #puncuation problems that can commonly cause problems
+        for punc in puncuations:
+            if punc :
+                query=re.sub(punc,"", query)
             else:
                 continue
-
-
-            #failsafe codes
-            #puncuation problems that can commonly cause problems
-            for punc in puncuations:
-                if punc :
-                    query=re.sub(punc,"", query)
-                else:
-                    continue
-            #deletes additional spaces that causes problems
-            if re.search("  ",query):
-                query=re.sub("  ","",query)
+        #deletes additional spaces that causes problems
+        if re.search("  ",query):
+            query=re.sub("  ","",query)
+        else:
+            continue
+        
+        #These lines removes confusing/unnecessary words from query so that it can be understood easily
+        for extra in extrawords:
+            if re.search(extra,query):
+                re.sub(extra,"",query)
             else:
                 continue
-            
-            #These lines removes confusing/unnecessary words from query so that it can be understood easily
-            for extra in extrawords:
-                if re.search(extra,query):
-                    re.sub(extra,"",query)
-                else:
-                    continue
-            
-            #Part A functional codes
-            
-            #Part A1. definitions code sector
-            #A1.1: Indirect function calls (calls the function but  in a more human way)
-            #needs to be coded
-            for indirectvar in indirect_func_call_meaning:
-                if indirectvar in query:
-                    re.sub(indirectvar,"",query)
-                    try:
-                        dictionary(query)
-                    except Exception as e:
-                        if user_gender=="Male":
-                            speak(f"Apologies sir, I am unable to search the definition for {query}.")
-                        else:
-                            speak(f"Sorry Madam, I am unable to search the definition for {query}")
-                else:
-                    continue     
-            #A1.2: Direct function call (calls dictionary function on command)
-            #dictionary
-            if query.startswith("dictionary"):
-                re.sub("dictionary","",query)
-                dictionary(query)
-            elif query.startswith('wikipedia'):
-                re.sub("wikipedia","",query)
-                wikipedia(query)
+        print(query)
+        #Part A functional codes
+        
+        #Part A1. definitions code sector
+        #A1.1: Indirect function calls (calls the function but  in a more human way)
+        #needs to be coded
+        for indirectvar in indirect_func_call_meaning:
+            if indirectvar in query:
+                re.sub(indirectvar,"",query)
+                try:
+                    dictionary(query)
+                except Exception as e:
+                    if user_gender=="Male":
+                        speak(f"Apologies sir, I am unable to search the definition for {query}.")
+                    else:
+                        speak(f"Sorry Madam, I am unable to search the definition for {query}")
+            else:
+                continue     
+        print(query)
+        #A1.2: Direct function call (calls dictionary function on command)
+        #dictionary
+        if query.startswith("dictionary"):
+            re.sub("dictionary","",query)
+            dictionary(query)
+        elif query.startswith('wikipedia'):
+            re.sub("wikipedia","",query)
+            wikipedia(query)
 
-            #no such thing for wikipedia as wikipedia isn't a verb and cannot be used in indirect function call
-            elif query.startswith("what") or query.startswith("define"): #add a line for indirect function call
-                if re.search("what",query):
-                    re.sub("what","",query)
-                #replaces the word what
-                if query.startswith("is"): #this is the is conditionss
-                    re.sub("is","",query)    
-                    for art in articleseng:
-                        if query.startswith(art):
-                            #what is an apple situation
-                            re.sub(art,"",query)
-                            try:
-                                dictionary(query)
-                            except Exception as e:
-                                print(e)#if this doesn't work this will!
-                                wikipedia(query)#hopefully
-                        else:
-                            continue
-                    #is condition 2!! #is meaning condition
-                    for mean in meaningvar:
-                        if query.startswith(mean):
-                            re.sub(mean,"",query)
-                            try:
-                                dictionary(query)
-                            except Exception as e:
-                                print(e)#if this doesn't work this will!
-                                wikipedia(query)#hopefully
+        #no such thing for wikipedia as wikipedia isn't a verb and cannot be used in indirect function call
+        elif query.startswith("what") or query.startswith("define"): #add a line for indirect function call
+            if re.search("what",query):
+                re.sub("what","",query)
+            #replaces the word what
+            if query.startswith("is"): #this is the is conditionss
+                re.sub("is","",query)    
+                for art in articleseng:
+                    if query.startswith(art):
+                        #what is an apple situation
+                        re.sub(art,"",query)
+                        try:
+                            dictionary(query)
+                        except Exception as e:
+                            print(e)#if this doesn't work this will!
+                            wikipedia(query)#hopefully
+                    else:
+                        continue
+                #is condition 2!! #is meaning condition
+                for mean in meaningvar:
+                    if query.startswith(mean):
+                        re.sub(mean,"",query)
+                        try:
+                            dictionary(query)
+                        except Exception as e:
+                            print(e)#if this doesn't work this will!
+                            wikipedia(query)#hopefully
 
 #initiate functions
 if __name__ == "__main__":
