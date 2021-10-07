@@ -71,8 +71,7 @@ def alphamain():
                         speak(f"Apologies sir, I am unable to search the definition for {query}.")
                     else:
                         speak(f"Sorry Madam, I am unable to search the definition for {query}")
-            else:
-                continue     
+
         print(query)
         #A1.2: Direct function call (calls dictionary function on command)
         #dictionary
@@ -86,7 +85,7 @@ def alphamain():
         #no such thing for wikipedia as wikipedia isn't a verb and cannot be used in indirect function call
         elif query.startswith("what") or query.startswith("define"): #add a line for indirect function call
             if re.search("what",query):
-                re.sub("what","",query)
+                re.sub("what","",query) 
             #replaces the word what
             if query.startswith("is"): #this is the is conditionss
                 re.sub("is","",query)    
@@ -99,8 +98,7 @@ def alphamain():
                         except Exception as e:
                             print(e)#if this doesn't work this will!
                             wikipedia(query)#hopefully
-                    else:
-                        continue
+
                 #is condition 2!! #is meaning condition
                 for mean in meaningvar:
                     if query.startswith(mean):
