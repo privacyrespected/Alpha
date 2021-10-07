@@ -71,7 +71,8 @@ def alphamain():
                         speak(f"Apologies sir, I am unable to search the definition for {query}.")
                     else:
                         speak(f"Sorry Madam, I am unable to search the definition for {query}")
-
+            else:
+                break
         print(query)
         #A1.2: Direct function call (calls dictionary function on command)
         #dictionary
@@ -98,6 +99,8 @@ def alphamain():
                         except Exception as e:
                             print(e)#if this doesn't work this will!
                             wikipedia(query)#hopefully
+                    else:
+                        break       
 
                 #is condition 2!! #is meaning condition
                 for mean in meaningvar:
@@ -108,6 +111,10 @@ def alphamain():
                         except Exception as e:
                             print(e)#if this doesn't work this will!
                             wikipedia(query)#hopefully
+                    else:
+                        break
+            else:
+                break
 
 #initiate functions
 if __name__ == "__main__":
