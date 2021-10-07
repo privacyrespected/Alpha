@@ -204,3 +204,10 @@ meaningvar=[
     "the definition of",
     "the definition for"
 ]
+indirect_func_call_meaning=[
+    "search the dictionary for the word",
+    "check the dictionary for the word",
+    "search the dictionary for",
+    "check the dictionary for "
+
+]

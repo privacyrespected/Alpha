@@ -86,8 +86,21 @@ def alphamain():
             #Part A functional codes
             
             #Part A1. definitions code sector
-
-            #A1.1: Direct function call (calls dictionary function on command)
+            #A1.1: Indirect function calls (calls the function but  in a more human way)
+            #needs to be coded
+            for indirectvar in indirect_func_call_meaning:
+                if indirectvar in query:
+                    re.sub(indirectvar,"",query)
+                    try:
+                        dictionary(query)
+                    except Exception as e:
+                        if user_gender=="Male":
+                            speak(f"Apologies sir, I am unable to search the definition for {query}.")
+                        else:
+                            speak(f"Sorry Madam, I am unable to search the definition for {query}")
+                else:
+                    continue     
+            #A1.2: Direct function call (calls dictionary function on command)
             #dictionary
             if query.startswith("dictionary"):
                 re.sub("dictionary","",query)
@@ -95,13 +108,7 @@ def alphamain():
             elif query.startswith('wikipedia'):
                 re.sub("wikipedia","",query)
                 wikipedia(query)
-            #A1.2: Indirect function calls (calls the function but  in a more human way)
-            elif "search the dictionary for" in query:
-                re.sub("search the dictionary for","",query)
-                dictionary(query)
-            elif "check the dictionary for" in query:
-                re.sub("check the dictionary for","",query)
-                dictionary(query)
+
             #no such thing for wikipedia as wikipedia isn't a verb and cannot be used in indirect function call
             elif query.startswith("what") or query.startswith("define"): #add a line for indirect function call
                 if re.search("what",query):
