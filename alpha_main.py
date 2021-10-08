@@ -136,6 +136,8 @@ def alphamain():
                     break
             #currently missing here: contact function
 
+        elif query.startswith("where"): #where condition
+            re.sub("where","",query)
 
 #initiate functions
 if __name__ == "__main__":
