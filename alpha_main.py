@@ -89,20 +89,20 @@ def alphamain():
             if re.search("what",query):
                 re.sub("what","",query) 
             #replaces the word what
-            if query.startswith("is"): #this is the is conditionss
-                re.sub("is","",query)    
+            if query.startswith("is"): #this is the is conditionss 
                 for art in articleseng:
                     if query.startswith(art):
                         #what is an apple situation
                         re.sub(art,"",query)
-                        try:
-                            dictionary(query)
-                        except Exception as e:
-                            print(e)#if this doesn't work this will!
-                            wikipedia(query)#hopefully
-                    else:
-                        break       
-
+                        if "weather" in query:
+                            re.sub("weather","",query)
+                            weathermain(query)
+                        else:
+                            try:
+                                dictionary(query)
+                            except Exception as e:
+                                print(e)#if this doesn't work this will!
+                                wikipedia(query)#hopefully
                 #is condition 2!! #is meaning condition
                 for mean in meaningvar:
                     if query.startswith(mean):
@@ -138,6 +138,7 @@ def alphamain():
 
         elif query.startswith("where"): #where condition
             re.sub("where","",query)
+            speak("location servides are still WIP")
 
 #initiate functions
 if __name__ == "__main__":
