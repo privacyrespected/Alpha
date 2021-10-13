@@ -17,16 +17,6 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 #imports the notification system.
 from win10toast import ToastNotifier
 
-def close_callback():
-    dataconfirm = ToastNotifier()
-    dataconfirm.show_toast("Alpha", "Data not yet confirmed, please try again", duration = 10, icon_path ="app.ico")
-    if path.isfile('data.json') == False:
-        exit()
-    else:
-        os.remove("data.json")
-        time.sleep(1)
-        exit()
-
 #start the eel session
 eel.init("usersetting/settingweb")
 #screen loading session for machine learning chatterbot
@@ -105,6 +95,6 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
         print(e)
 if sys.platform in ['win32', 'win64'] and int(platform.release()) >= 10:
 
-    eel.start("homesetting.html",cmdline_args=['--start-fullscreen','--incognito'], port=1111, mode='default',  disable_cache=True,close_callback=close_callback,)
+    eel.start("homesetting.html",cmdline_args=['--start-fullscreen','--incognito'], port=1111, mode='default',  disable_cache=True)
 else:
     raise EnvironmentError('Error: System is not Windows 10 or above')
