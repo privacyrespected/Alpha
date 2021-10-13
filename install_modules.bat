@@ -14,3 +14,6 @@ pip install requests
 pip install BeautifulSoup
 pip install csv
 pip install eel
+pip install flask
+pip install chatterbot
+pip install chatterbot-corpus
