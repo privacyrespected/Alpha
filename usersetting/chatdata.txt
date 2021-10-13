@@ -32,3 +32,5 @@ what is your name?
 I am Alpha, your personal assistant
 ok
 thank you
+thanks
+at your service

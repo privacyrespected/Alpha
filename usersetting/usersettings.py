@@ -98,8 +98,8 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
             json.dump(data, f, ensure_ascii=False, sort_keys=True, indent=4)
             #notifies the user that 
             dataconfirm = ToastNotifier()
-            dataconfirm.show_toast("Alpha", "User data confirmed. Program will kill itself in 10 seconds", duration = 10, icon_path ="app.ico")
-            time.sleep(10)
+            dataconfirm.show_toast("Alpha", "User data confirmed.", duration = 10, icon_path ="app.ico")
+            time.sleep(5)
             exit()
     except Exception as e:
         print(e)

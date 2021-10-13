@@ -5,7 +5,6 @@ function userconfirm() {
     var userdob = document.getElementById("userdob").value
     var useremail = document.getElementById("useremail").value
     var useremailpass = document.getElementById("useremailpass").value
-    setTimeout(window.open("loaded.html","_self"), 5000);
     eel.usersettingwrite(username, usercity, user_gender, userdob, useremail, useremailpass) 
-    
+    setTimeout(function(){ window.open('','_self').close(); }, 5000);
 }
