@@ -20,42 +20,41 @@ from win10toast import ToastNotifier
 #start the eel session
 eel.init("usersetting/settingweb")
 #screen loading session for machine learning chatterbot
+chatbot = ChatBot(
+'Alpha',
+storage_adapter='chatterbot.storage.SQLStorageAdapter',
+logic_adapters=[
+    'chatterbot.logic.MathematicalEvaluation',
+    'chatterbot.logic.TimeLogicAdapter',
+    'chatterbot.logic.BestMatch',
+    {
+        'import_path': 'chatterbot.logic.BestMatch',
+        'default_response': 'I am sorry, but I do not understand.',
+        'maximum_similarity_threshold': 0.90
+    }
+],
+database_uri='sqlite:///database.sqlite3'
+)
+    # Training with Personal Ques & Ans 
+if path.isfile('usersetting/chatdata.txt') == False:
+    dataconfirm = ToastNotifier()
+    dataconfirm.show_toast("Alpha", "Essential files deleted, please reinstall", duration = 10)
+    time.sleep(10)
+    exit()
+elif path.isfile("usersetting/additionaldata.txt")==False:
+    dataconfirm=ToastNotifier()
+    dataconfirm.show_toast("Alpha","Essential files delted, please reinstall",duration=10)
+    
+training_data_simple = open('usersetting/chatdata.txt').read().splitlines()
+training_data_personal = open('usersetting/additionaldata.txt').read().splitlines()
 
+training_data = training_data_simple + training_data_personal
+
+trainer = ListTrainer(chatbot)
+trainer.train(training_data) 
 @eel.expose
 def usersettingwrite(username, usercity, user_gender, userdob, useremail, useremailpass):
     try:       
-        chatbot = ChatBot(
-        'Alpha',
-        storage_adapter='chatterbot.storage.SQLStorageAdapter',
-        logic_adapters=[
-            'chatterbot.logic.MathematicalEvaluation',
-            'chatterbot.logic.TimeLogicAdapter',
-            'chatterbot.logic.BestMatch',
-            {
-                'import_path': 'chatterbot.logic.BestMatch',
-                'default_response': 'I am sorry, but I do not understand.',
-                'maximum_similarity_threshold': 0.90
-            }
-        ],
-        database_uri='sqlite:///database.sqlite3'
-        )
-            # Training with Personal Ques & Ans 
-        if path.isfile('usersetting/chatdata.txt') == False:
-            dataconfirm = ToastNotifier()
-            dataconfirm.show_toast("Alpha", "Essential files deleted, please reinstall", duration = 10)
-            time.sleep(10)
-            exit()
-        elif path.isfile("usersetting/additionaldata.txt")==False:
-            dataconfirm=ToastNotifier()
-            dataconfirm.show_toast("Alpha","Essential files delted, please reinstall",duration=10)
-            
-        training_data_simple = open('usersetting/chatdata.txt').read().splitlines()
-        training_data_personal = open('usersetting/additionaldata.txt').read().splitlines()
-
-        training_data = training_data_simple + training_data_personal
-
-        trainer = ListTrainer(chatbot)
-        trainer.train(training_data) 
         with open('data.json', 'w', encoding='utf-8') as f:
             print("Name: " + username)
             print("Usercity: " + usercity)

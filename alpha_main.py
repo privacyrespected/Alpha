@@ -5,7 +5,6 @@ import re
 print("ALPHA V2.0")
 print("Developed by: NuggetCat ")
 print("Email: nuggetcatsoftware@gmail.com")
-
 import eel
 #eel function link
 eel.init("web")  
@@ -139,7 +138,8 @@ def alphamain():
         elif query.startswith("where"): #where condition
             re.sub("where","",query)
             speak("location servides are still WIP")
-
+        else:
+            speak("I do not understand.")
 #initiate functions
 if __name__ == "__main__":
     print("started")
