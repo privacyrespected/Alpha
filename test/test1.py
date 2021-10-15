@@ -46,7 +46,13 @@ conversation = [
     "ok",
     "that's great to hear",
     "thanks",
-    "at your service"
+    "at your service",
+    "fuck",
+    "You seem angry, is there something I can help",
+    "nigger",
+    "Please refrain from racial slurs, we are all created equal",
+    "you are great",
+    "thanks, your opinion is valuable to my growth"
 ]
 trainer = ListTrainer(chatbot)
 trainer2 = ChatterBotCorpusTrainer(chatbot)
