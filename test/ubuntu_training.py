@@ -70,3 +70,4 @@ while True:
     query=input("User: ")
     response = chatbot.get_response(query)
     print("Bot: "+response)
+    trainer.export_for_training('./my_export.json')
