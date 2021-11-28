@@ -2,7 +2,7 @@ from urllib.parse import quote_from_bytes
 from functions import *
 from response import *
 import re
-print("ALPHA V2.0")
+print("ALPHA V3x.0")
 print("Developed by: NuggetCat ")
 print("Email: nuggetcatsoftware@gmail.com")
 import eel
