@@ -50,50 +50,6 @@ try:
 except ImportError:
     reporterror("module google not found", "Check pip installation")
 
-#load user data functions
-print("Checking user data...")
-if path.isfile('data.json') == False:
-    reporterror("User.txt not found", "Run usersettings.exe please")
-    os.startfile("hmm.vbs")
-    time.sleep(30)
-    exit()
-#user data reconfirmation in backend
-print("Loading user data.")
-with open("data.json", "r") as read_file:
-    userdata = json.load(read_file) 
-    main_data=userdata["main_user_data"]
-    user_name=main_data["username"]
-    usercity=main_data["usercity"]
-    user_gender=main_data["usergender"]
-    user_dob=main_data["userdob"]
-    user_email=main_data["useremail"]
-    user_email_password=main_data["useremailpass"]
-    user_species=main_data["userspecies"]
-    user_bloodtype=main_data["userbloodtype"]
-    user_skincolor=main_data["userskincolor"]
-    user_ethnicity=main_data["userethnicity"]
-    user_religion=main_data["userreligion"]
-    user_weight=main_data["userweight"]
-    user_height=main_data["userheight"]
-    user_sport=main_data["usersport"]
-    user_hobby=main_data["userhobby"]
-    user_interest=main_data["userinterest"]
-    user_discord=main_data["userpersonaldiscordbottoken"]
-    print("Confirming user data")
-    print(user_name)
-    print(usercity)
-    print(user_gender)
-    print(user_dob)
-    print(user_email)
-    print(user_email_password)
-    print(user_species)
-    print(user_bloodtype)
-    print(user_skincolor)
-    print(user_ethnicity)
-    print("All data confirmed and detected")
-# create an object to ToastNotifier class
-dataconfirm = ToastNotifier()
-dataconfirm.show_toast("Alpha", "User data confirmed", duration = 5, icon_path ="app.ico")
 
 #notify functiion
 def notify(title, content, duration):
@@ -154,7 +110,7 @@ def get_operator_fn(op):
 def eval_binary_expr(op1, oper, op2):
     op1,op2 = int(op1), int(op2)
     return get_operator_fn(oper)(op1, op2)
-def wishMe():
+def wishMe(user_gender):
     hour = int(datetime.datetime.now().hour)
     if hour>=0 and hour<12:
         speak("Good Morning!")
@@ -170,11 +126,11 @@ def wishMe():
         print("I am Alpha")
     else:
         speak("I am Alpha! Madam, please tell me how may I help you.")       
-def wishme2():
+def wishme2(user_name):
     hour=int(datetime.datetime.now().hour)
     if hour>=0 and hour<12:
         speak("Good Morning")
-        speak(  user_name + "What are you planning to do?" )
+        speak(  user_name + " What are you planning to do?" )
     
     elif hour>=12 and hour<18:
         speak("Good afternoon, ready to continue work?")
@@ -187,7 +143,7 @@ def screenshot():
     img = pyautogui.screenshot()
     img.save('"C:\Pictures"/screenshot.png')
     speak("Okay, it is now in your Pictures folder")
-def covid19():
+def covid19(usercity,user_gender):
     country =  usercity
     worldmetersLink = "https://www.worldometers.info/coronavirus/"
     try:
@@ -240,9 +196,9 @@ def sing2():
     time.sleep(1)
     speak("We are really vibing.")
 #weathermain(usercity)
-def sayhello():
+def sayhello(user_name):
     speak("Hello everyone." +  user_name + "who are these people")
-def sayhello2():
+def sayhello2(user_name):
     speak( user_name + "I feel awkward.")
 def sing():
     speak("I do not think you will like it")
@@ -328,6 +284,6 @@ def getnews():
     speak(df_features + df_show_info)
     return (df_features, df_show_info)
 
-def wikipedia(word):
+def searchwiki(word):
     out=wikipedia.summary(word, sentences=2, auto_suggest=False)
     speak(out)

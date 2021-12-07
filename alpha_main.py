@@ -2,9 +2,59 @@ from urllib.parse import quote_from_bytes
 from functions import *
 from response import *
 import re
-print("ALPHA V3x.0")
+print("ALPHA V3.0")
 print("Developed by: NuggetCat ")
 print("Email: nuggetcatsoftware@gmail.com")
+print("For update logs please view it on github of this repo")
+print("Checking user data...")
+if path.isfile('data.json') == False:
+    reporterror("data.json not found", "Run usersettings.exe please")
+    notify("OPPs!","Cant start without data.json, try again","60")
+    time.sleep(30)
+    exit()
+#user data reconfirmation in backend
+else:
+    print("Loading user data.")
+    try:
+        with open("data.json", "r") as read_file:
+            userdata = json.load(read_file) 
+            main_data=userdata["main_user_data"]
+            user_name=main_data["username"]
+            usercity=main_data["usercity"]
+            user_gender=main_data["usergender"]
+            user_dob=main_data["userdob"]
+            user_email=main_data["useremail"]
+            user_email_password=main_data["useremailpass"]
+            user_species=main_data["userspecies"]
+            user_bloodtype=main_data["userbloodtype"]
+            user_skincolor=main_data["userskincolor"]
+            user_ethnicity=main_data["userethnicity"]
+            user_religion=main_data["userreligion"]
+            user_weight=main_data["userweight"]
+            user_height=main_data["userheight"]
+            user_sport=main_data["usersport"]
+            user_hobby=main_data["userhobby"]
+            user_interest=main_data["userinterest"]
+            user_discord=main_data["userpersonaldiscordbottoken"]
+            print("Confirming user data")
+            print(user_name)
+            print(usercity)
+            print(user_gender)
+            print(user_dob)
+            print(user_email)
+            print(user_email_password)
+            print(user_species)
+            print(user_bloodtype)
+            print(user_skincolor)
+            print(user_ethnicity)
+            print("All data confirmed and detected")
+        # create an object to ToastNotifier class
+        dataconfirm = ToastNotifier()
+        dataconfirm.show_toast("Alpha", "User data confirmed", duration = 5, icon_path ="app.ico")
+    except Exception as e:
+        print(e)
+        shit=ToastNotifier()
+        shit.show_toast("Alpha", e, duration=10, icon_path="app.ico")
 import eel
 #eel function link
 eel.init("web")  
@@ -47,99 +97,14 @@ def alphamain():
         query= listen().lower()
         #MAKE SURE YOU DONT CAPLOCK IF CONDITIONS OR SHIT WONT WORK KEKW
         #this line reduces errors and warnings for "cant listen" and doesnt breaks the program
-
+        if query.startswith("wikipedia"):
+            query.replace("wikipedia","")
+            searchwiki(query)
         #checks if its a function call and remind itself later 
         #because we will be deleting this string from query while processing it
         
-        if query.startswith("can you"):
-            var_function_call="True"
         else:
-            continue
-
-        #Part A functional codes
-        
-        #Part A1. definitions code sector
-        #A1.1: Indirect function calls (calls the function but  in a more human way)
-        #needs to be coded
-        for indirectvar in indirect_func_call_meaning:
-            if indirectvar in query:
-                re.sub(indirectvar,"",query)
-                try:
-                    dictionary(query)
-                except Exception as e:
-                    if user_gender=="Male":
-                        speak(f"Apologies sir, I am unable to search the definition for {query}.")
-                    else:
-                        speak(f"Sorry Madam, I am unable to search the definition for {query}")
-            else:
-                break
-        print(query)
-        #A1.2: Direct function call (calls dictionary function on command)
-        #dictionary
-        if query.startswith("dictionary"):
-            re.sub("dictionary","",query)
-            dictionary(query)
-        elif query.startswith('wikipedia'):
-            re.sub("wikipedia","",query)
-            wikipedia(query)
-
-        #no such thing for wikipedia as wikipedia isn't a verb and cannot be used in indirect function call
-        elif query.startswith("what") or query.startswith("define"): #add a line for indirect function call
-            if re.search("what",query):
-                re.sub("what","",query) 
-            #replaces the word what
-            if query.startswith("is"): #this is the is conditionss 
-                for art in articleseng:
-                    if query.startswith(art):
-                        #what is an apple situation
-                        re.sub(art,"",query)
-                        if "weather" in query:
-                            re.sub("weather","",query)
-                            weathermain(query)
-                        else:
-                            try:
-                                dictionary(query)
-                            except Exception as e:
-                                print(e)#if this doesn't work this will!
-                                wikipedia(query)#hopefully
-                #is condition 2!! #is meaning condition
-                for mean in meaningvar:
-                    if query.startswith(mean):
-                        re.sub(mean,"",query)
-                        try:
-                            dictionary(query)
-                        except Exception as e:
-                            print(e)#if this doesn't work this will!
-                            wikipedia(query)#hopefully
-                    else:
-                        break
-            else:
-                break
-        
-        elif query.startswith("who"): #who situation
-            re.sub("who","",query)
-            for who in whopast: #historic people
-                if who in whopast:
-                    re.sub(who,"",query)
-                    wikipedia(query)
-                else:
-                    break
-            for whoo in whopresent:
-                if whoo in query:
-                    re.sub(whoo,"",query)
-                    if query.startswith(" you"):
-                        speak("I am Alpha. your personal assistant. You can view my abilities by asking me what I can do.")
-                    else:
-                        wikipedia(query)
-                else:
-                    break
-            #currently missing here: contact function
-
-        elif query.startswith("where"): #where condition
-            re.sub("where","",query)
-            speak("location servides are still WIP")
-        else:
-            speak("I do not understand.")
+            print("Cant comprehend")
 #initiate functions
 if __name__ == "__main__":
     print("started")
@@ -147,9 +112,9 @@ if __name__ == "__main__":
     print(random.randint(1,2))
     random_functions = random.randint(1,2)
     if int(random_functions) == 1:
-        wishMe()
+        wishMe(user_gender)
     elif int(random_functions) == 2:
-        wishme2()
+        wishme2(user_gender)
     try:
         Thread(target=alphamain).start()
         Thread(target=alpha_frontend).start()
