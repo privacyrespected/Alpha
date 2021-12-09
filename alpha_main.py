@@ -1,15 +1,19 @@
-from functions import *
-from response import *
-import re
-import regex
-from os import path
-import os
-import time
-import json
-import psutil
-import platform
-import sys
-import threading
+try:
+    from functions import *
+    from response import *
+    import re
+    import regex
+    from os import path
+    import os
+    import time
+    import json
+    import psutil
+    import platform
+    import sys
+    from threading import Thread
+except Exception as e:
+    reporterror(e, "that shouldn't happen. Please contact the developer")
+    
 print("ALPHA V3.0")
 print("Developed by: NuggetCat ")
 print("Email: nuggetcatsoftware@gmail.com")
