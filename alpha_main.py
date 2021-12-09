@@ -1,7 +1,15 @@
-from urllib.parse import quote_from_bytes
 from functions import *
 from response import *
 import re
+import regex
+from os import path
+import os
+import time
+import json
+import psutil
+import platform
+import sys
+import threading
 print("ALPHA V3.0")
 print("Developed by: NuggetCat ")
 print("Email: nuggetcatsoftware@gmail.com")
@@ -94,17 +102,15 @@ def alpha_frontend():
 
 def alphamain():
     while True:
-        query= listen().lower()
-        #MAKE SURE YOU DONT CAPLOCK IF CONDITIONS OR SHIT WONT WORK KEKW
-        #this line reduces errors and warnings for "cant listen" and doesnt breaks the program
-        if query.startswith("wikipedia"):
-            query.replace("wikipedia","")
-            searchwiki(query)
-        #checks if its a function call and remind itself later 
-        #because we will be deleting this string from query while processing it
+        query=listen().lower()
+        query=str(query)
         
-        else:
-            print("Cant comprehend")
+        #part 1 direct function calls
+        if re.findall("wikipedia",query):
+            query=query.replace("wikipedia","")
+            
+
+
 #initiate functions
 if __name__ == "__main__":
     print("started")
@@ -114,7 +120,7 @@ if __name__ == "__main__":
     if int(random_functions) == 1:
         wishMe(user_gender)
     elif int(random_functions) == 2:
-        wishme2(user_gender)
+        wishme2(user_name)
     try:
         Thread(target=alphamain).start()
         Thread(target=alpha_frontend).start()
