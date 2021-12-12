@@ -106,6 +106,9 @@ def alpha_frontend():
 
 
 def alphamain():
+    #greet the user
+    #put here such that frontend function and backend function can run simultaneously
+
     print(random.randint(1,2))
     random_functions = random.randint(1,2)
     if int(random_functions) == 1:
@@ -114,11 +117,12 @@ def alphamain():
         wishme2(user_name)
     else:
         reporterror("big shit happened","report it on github code=001")
+    #loop for listenin
     while True:
         query=listen().lower()
         query=str(query)
+#### If statements starts here
         
-        #part 1 direct function calls
         
 
 
