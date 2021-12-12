@@ -1,5 +1,5 @@
 #writing responses is very simple but requires proper variable naming otherwise, coding this would be a pain
-# if you intend to commit a pull request. write GOOD VARIABLES OR ILL JUST TAKE IT FROM YOUR FORK AND CLOSE YOUR PULL REQUEST
+# if you intend t coommit a pull request. write GOOD VARIABLES OR ILL JUST TAKE IT FROM YOUR FORK AND CLOSE YOUR PULL REQUEST
 # YOU ARE COSTING ME TIME AND YOUR OWN SANITY
 #toxic, I am kekw
 positivesigns=[

@@ -11,6 +11,7 @@ try:
     import platform
     import sys
     from threading import Thread
+    import random
 except Exception as e:
     reporterror(e, "that shouldn't happen. Please contact the developer")
     
@@ -105,26 +106,25 @@ def alpha_frontend():
 
 
 def alphamain():
-    while True:
-        query=listen().lower()
-        query=str(query)
-        
-        #part 1 direct function calls
-        if re.findall("wikipedia",query):
-            query=query.replace("wikipedia","")
-            
-
-
-#initiate functions
-if __name__ == "__main__":
-    print("started")
-    import random
     print(random.randint(1,2))
     random_functions = random.randint(1,2)
     if int(random_functions) == 1:
         wishMe(user_gender)
     elif int(random_functions) == 2:
         wishme2(user_name)
+    else:
+        reporterror("big shit happened","report it on github code=001")
+    while True:
+        query=listen().lower()
+        query=str(query)
+        
+        #part 1 direct function calls
+        
+
+
+#initiate functions
+if __name__ == "__main__":
+    print("started")
     try:
         Thread(target=alphamain).start()
         Thread(target=alpha_frontend).start()

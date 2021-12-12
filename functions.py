@@ -69,7 +69,7 @@ def wishMe(user_gender):
     else:
         speak("Good Evening!")  
 
-    if user_gender=="male":
+    if user_gender=="Male":
         speak("I am Alpha! Sir, Please tell me how may I help you")
         print("I am Alpha")
     else:
@@ -88,3 +88,25 @@ def wishme2(user_name):
     else:
         speak("Good evening!" + user_name)
         speak("How was your day?")
+
+import requests
+from pprint import pprint
+def weather_data(query):
+	res=requests.get('http://api.openweathermap.org/data/2.5/weather?'+query+'&APPID=5bddd4ad4f4f192f6dfffe714388c103');
+	return res.json();
+def print_weather(result,usercity):
+    
+    speak("{}'s temperature is {} degress Celcius ".format(usercity,result['main']['temp']-273))
+    speak("Wind speed is {} meters per second".format(result['wind']['speed']))
+	
+    speak("The weather looks {}".format(result['weather'][0]['description']))
+	
+    print("Weather: {}".format(result['weather'][0]['main']))
+def weathermain(usercity):
+    try:
+        query='q='+usercity;
+        w_data=weather_data(query);
+        print_weather(w_data, usercity)
+        print()
+    except:
+        print('City name not found...')

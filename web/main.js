@@ -17,4 +17,4 @@ function callback2(current_network){
 };
 function checknetwork(){
 eel.checknetwork1()(callback2)
-}
+};
