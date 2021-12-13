@@ -29,17 +29,18 @@ chatbot=ChatBot("Alpha", logic_adapters=[
     'chatterbot.logic.BestMatch',
     'chatterbot.logic.TimeLogicAdapter',
     'chatterbot.logic.MathematicalEvaluation',
-    {'default_response': 'I am sorry, but I do not understand.',
+    {'import_path': 'chatterbot.logic.BestMatch','default_response': 'I am sorry, but I do not understand.',
     'maximum_similarity_threshold': 0.90}
 ])
-trainer=ListTrainer(chatbot)
-trainer2=ChatterBotCorpusTrainer(chatbot)
-trainer.train(conversation)
-trainer2.train(
+
+trainer=ChatterBotCorpusTrainer(chatbot)
+trainer.train(
     "chatterbot.corpus.english.greetings",
     "chatterbot.corpus.english.conversations",
     "chatterbot.corpus.english.ai"
 )
+trainer=ListTrainer(chatbot)
+trainer.train(conversation)
 
 
 #####
