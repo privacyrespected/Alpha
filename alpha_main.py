@@ -121,6 +121,9 @@ def alphamain():
     while True:
         query=listen().lower() #lowered for simpler regex processing (hopefully)
         query=str(query)
+
+        #SENTENCE CLEANUP (REMOVAL OF SOME EXTRA WORDS)
+        
 #### If statements starts here
 
         #DIRECT FUNCTION CALLS
@@ -130,7 +133,7 @@ def alphamain():
         elif re.findall("^weather", query):
             query=re.sub("weather","",query)
             weathermain(query)
-        
+
 
         #QUESTION BASED RESPONSES
               
