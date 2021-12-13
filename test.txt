@@ -1,3 +1,4 @@
+```py
 from chatterbot import ChatBot, conversation
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot.trainers import ListTrainer
@@ -26,3 +27,12 @@ while True:
     response=chatbot.get_response(query)
     print(response)
     trainer.export_for_training('./testdata.json')
+```
+
+Hi so this the code I am trying to execute. Right now when the confidence level is low, it decide to show the time for no reason
+I am trying to change so that when the confidence level is low, it says "I dont think i understand"
+ping me please
+additional information
+
+
+https://cdn.discordapp.com/attachments/696352490437738516/920049292457177118/unknown.png

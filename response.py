@@ -288,7 +288,7 @@ conversation = [
 
     "nigger",
     "Please refrain from racial slurs, we are all created equal",
-    
+     
     "you are great",
     "thanks, your opinion is valuable to my growth"
 ]

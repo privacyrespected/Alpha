@@ -28,9 +28,7 @@ print("Checking user data...")
 chatbot=ChatBot("Alpha", logic_adapters=[
     'chatterbot.logic.BestMatch',
     'chatterbot.logic.TimeLogicAdapter',
-    'chatterbot.logic.MathematicalEvaluation',
-    {'import_path': 'chatterbot.logic.BestMatch','default_response': 'I am sorry, but I do not understand.',
-    'maximum_similarity_threshold': 0.90}
+    'chatterbot.logic.MathematicalEvaluation'
 ])
 
 trainer=ChatterBotCorpusTrainer(chatbot)
@@ -153,7 +151,7 @@ def alphamain():
         #DIRECT FUNCTION CALLS
         if re.findall("^wikipedia", query):
             query=re.sub("wikipedia","",query)
-            wikipedia(query)
+            swikipedia(query)
         elif re.findall("^weather", query):
             query=re.sub("weather","",query)
             weathermain(query)
@@ -164,7 +162,7 @@ def alphamain():
 
         #human interactions
         else:
-            print("Human responses (from chatterbot")
+            print("Human responses (from chatterbot)")
             response=chatbot.get_response(query)
             speak(response)
             trainer.export_for_training("./conversation_data.json")

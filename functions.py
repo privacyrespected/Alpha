@@ -25,11 +25,13 @@ def listen():
     query=input("Input command to start debugging: ")
     return query
 #wikipedia search
-def wikipedia(query):       
+def swikipedia(query):       
     try:
         print(query)
         output=wikipedia.search(query,results=4, suggestion =True)
-        output2=wikipedia.search(query,sentences=3)
+        output2=wikipedia.summary(query,sentences=3)
+        output=str(output)
+        output2=str(output2)
         output=output.lower()
         output2=output2.lower()
         speak(output2)
@@ -96,3 +98,4 @@ def weathermain(usercity):
         print()
     except:
         print('City name not found...')
+
