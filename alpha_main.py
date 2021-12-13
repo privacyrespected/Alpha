@@ -119,9 +119,21 @@ def alphamain():
         reporterror("big shit happened","report it on github code=001")
     #loop for listenin
     while True:
-        query=listen().lower()
+        query=listen().lower() #lowered for simpler regex processing (hopefully)
         query=str(query)
 #### If statements starts here
+
+        #DIRECT FUNCTION CALLS
+        if re.findall("^wikipedia", query):
+            query=re.sub("wikipedia","",query)
+            wikipedia(query)
+        elif re.findall("^weather", query):
+            query=re.sub("weather","",query)
+            weathermain(query)
+        
+
+        #QUESTION BASED RESPONSES
+              
         
         
 
