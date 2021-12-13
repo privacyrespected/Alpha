@@ -12,6 +12,10 @@ try:
     import sys
     from threading import Thread
     import random
+    from chatterbot import ChatBot
+    from chatterbot.trainers import ListTrainer
+    from chatterbot.trainers import ChatterBotCorpusTrainer
+
 except Exception as e:
     reporterror(e, "that shouldn't happen. Please contact the developer")
     
@@ -20,6 +24,25 @@ print("Developed by: NuggetCat ")
 print("Email: nuggetcatsoftware@gmail.com")
 print("For update logs please view it on github of this repo")
 print("Checking user data...")
+###Chatbot variables definition
+chatbot=ChatBot("Alpha", logic_adapters=[
+    'chatterbot.logic.BestMatch',
+    'chatterbot.logic.TimeLogicAdapter',
+    'chatterbot.logic.MathematicalEvaluation',
+    {'default_response': 'I am sorry, but I do not understand.',
+    'maximum_similarity_threshold': 0.90}
+])
+trainer=ListTrainer(chatbot)
+trainer2=ChatterBotCorpusTrainer(chatbot)
+trainer.train(conversation)
+trainer2.train(
+    "chatterbot.corpus.english.greetings",
+    "chatterbot.corpus.english.conversations",
+    "chatterbot.corpus.english.ai"
+)
+
+
+#####
 if path.isfile('data.json') == False:
     reporterror("data.json not found", "Run usersettings.exe please")
     notify("OPPs!","Cant start without data.json, try again","60")
@@ -133,12 +156,18 @@ def alphamain():
         elif re.findall("^weather", query):
             query=re.sub("weather","",query)
             weathermain(query)
-
+        
 
         #QUESTION BASED RESPONSES
-              
-        
-        
+
+
+        #human interactions
+        else:
+            print("Human responses (from chatterbot")
+            response=chatbot.get_response(query)
+            speak(response)
+            trainer.export_for_training("./conversation_data.json")
+
 
 
 #initiate functions
