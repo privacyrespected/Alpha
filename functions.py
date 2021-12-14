@@ -28,20 +28,14 @@ def listen():
 def swikipedia(query):       
     try:
         print(query)
-        output=wikipedia.search(query,results=4, suggestion =True)
         output2=wikipedia.summary(query,sentences=3)
-        output=str(output)
         output2=str(output2)
-        output=output.lower()
         output2=output2.lower()
+        #this parts removes brackets because they happen to be irrelavant
+        output2= output2.replace("(","{")
+        output2=output2.replace(')','}')
+        output2= re.sub('{[^}]*}', '', output2)
         speak(output2)
-        if re.findall(query, output): #this line checks if there are any duplicates
-            output=query.replace(output,"")
-            speak("Fancy of more details? Here are some other topics suggested")
-            speak(output)
-        else:
-            speak('Fancy of more details? Here are some other topics suggested')
-            speak(output)
     except Exception as e:
         reporterror(e, "Contact developer")
     

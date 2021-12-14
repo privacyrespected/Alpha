@@ -141,11 +141,12 @@ def alphamain():
         reporterror("big shit happened","report it on github code=001")
     #loop for listenin
     while True:
-        query=listen().lower() #lowered for simpler regex processing (hopefully)
-        query=str(query)
+        query=listen() #lowered for simpler regex processing (hopefully)
+        query= str(query)
+        query=query.lower()
+
 
         #SENTENCE CLEANUP (REMOVAL OF SOME EXTRA WORDS)
-        
 #### If statements starts here
 
         #DIRECT FUNCTION CALLS
