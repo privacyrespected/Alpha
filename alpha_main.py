@@ -144,9 +144,8 @@ def alphamain():
         query=listen() #lowered for simpler regex processing (hopefully)
         query= str(query)
         query=query.lower()
-
-
         #SENTENCE CLEANUP (REMOVAL OF SOME EXTRA WORDS)
+        
 #### If statements starts here
 
         #DIRECT FUNCTION CALLS

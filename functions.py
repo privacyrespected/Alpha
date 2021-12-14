@@ -7,6 +7,8 @@ import speech_recognition as sr
 import wikipedia
 import re
 import datetime
+import requests
+from pprint import pprint
 #notify functiion
 def notify(title, content, duration):
     dataconfirm = ToastNotifier()
@@ -21,7 +23,7 @@ def speak(audio):
     engine.say(audio)
     engine.runAndWait()
 #speech recognition
-def listen():
+def listen():#debug version here
     query=input("Input command to start debugging: ")
     return query
 #wikipedia search
@@ -71,8 +73,6 @@ def wishme2(user_name):
         speak("Good evening!" + user_name)
         speak("How was your day?")
 
-import requests
-from pprint import pprint
 def weather_data(query):
 	res=requests.get('http://api.openweathermap.org/data/2.5/weather?'+query+'&APPID=5bddd4ad4f4f192f6dfffe714388c103');
 	return res.json();
@@ -92,4 +92,5 @@ def weathermain(usercity):
         print()
     except:
         print('City name not found...')
+
 
