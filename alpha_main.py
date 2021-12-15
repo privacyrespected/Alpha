@@ -138,6 +138,7 @@ def alphamain():
         wishme2(user_name)
     else:
         reporterror("big shit happened","report it on github code=001")
+
     #loop for listenin
     while True:
         query=listen() #lowered for simpler regex processing (hopefully)
@@ -149,6 +150,8 @@ def alphamain():
                 query =re.sub(cleanup,"",query)
             else:
                 continue
+        #################
+
 #### If statements starts here
 
         #DIRECT FUNCTION CALLS
@@ -158,8 +161,13 @@ def alphamain():
             swikipedia(query)
         #check weather
         elif re.findall("^weather", query):
-            query=re.sub("weather","",query)
-            weathermain(query)
+            if "my location" in query:
+                city, state,country= my_location()
+                city=str(city)
+                weathermain(city)
+            else:
+                query=re.sub("weather","",query)
+                weathermain(query)
         #take screenshot
         elif re.findall("^screenshot",query):
             screenshot()

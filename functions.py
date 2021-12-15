@@ -96,19 +96,33 @@ def weathermain(usercity):
         print('City name not found...')
 
 def screenshot():
-
     img = pyautogui.screenshot()
-    img.save('"C:\Pictures"/screenshot.png')
+    img.save(r"C:\Users\Gabriel\Pictures\Camera Roll\ss.jpg")
     speak("Okay, it is now in your Pictures folder")
+    
 def checkram():
     memory_info= psutil.virtual_memory()
     output= str(memory_info.percent)
     speak("The current RAM usage is ")
     speak(output)
     speak("percent")
+
 def checkcpu():
     checkcpu= psutil.cpu_percent()
     checkcpu=str(checkcpu)
     speak("The current CPU usage is ")
     speak(checkcpu)
     speak("percent")
+
+def my_location():
+    ip_add = requests.get('https://api.ipify.org').text
+    url = 'https://get.geojs.io/v1/ip/geo/' + ip_add + '.json'
+    geo_requests = requests.get(url)
+    geo_data = geo_requests.json()
+    city = geo_data['city']
+    state = geo_data['region']
+    country = geo_data['country']
+    print(city)
+    print(state)
+    print(country)
+    return city, state,country
