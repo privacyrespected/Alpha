@@ -9,6 +9,8 @@ import re
 import datetime
 import requests
 from pprint import pprint
+import pyautogui
+import psutil
 #notify functiion
 def notify(title, content, duration):
     dataconfirm = ToastNotifier()
@@ -93,4 +95,20 @@ def weathermain(usercity):
     except:
         print('City name not found...')
 
+def screenshot():
 
+    img = pyautogui.screenshot()
+    img.save('"C:\Pictures"/screenshot.png')
+    speak("Okay, it is now in your Pictures folder")
+def checkram():
+    memory_info= psutil.virtual_memory()
+    output= str(memory_info.percent)
+    speak("The current RAM usage is ")
+    speak(output)
+    speak("percent")
+def checkcpu():
+    checkcpu= psutil.cpu_percent()
+    checkcpu=str(checkcpu)
+    speak("The current CPU usage is ")
+    speak(checkcpu)
+    speak("percent")

@@ -15,15 +15,15 @@ try:
     from chatterbot import ChatBot
     from chatterbot.trainers import ListTrainer
     from chatterbot.trainers import ChatterBotCorpusTrainer
-
 except Exception as e:
     reporterror(e, "that shouldn't happen. Please contact the developer")
-    
+
 print("ALPHA V3.0")
 print("Developed by: NuggetCat ")
 print("Email: nuggetcatsoftware@gmail.com")
 print("For update logs please view it on github of this repo")
 print("Checking user data...")
+
 ###Chatbot variables definition
 chatbot=ChatBot("Alpha", logic_adapters=[
     'chatterbot.logic.BestMatch',
@@ -39,9 +39,8 @@ trainer.train(
 )
 trainer=ListTrainer(chatbot)
 trainer.train(conversation)
-
-
 #####
+
 if path.isfile('data.json') == False:
     reporterror("data.json not found", "Run usersettings.exe please")
     notify("OPPs!","Cant start without data.json, try again","60")
@@ -118,10 +117,10 @@ def checknetwork1():
 #this function starts eel frontend
 def alpha_frontend():
     #check system 
-    if sys.platform in ['win32', 'win64'] and int(platform.release()) >= 10:
+    if sys.platform in ['win32','win64'] and int(platform.release()) >= 10:
         print("Start frontend")
         #start tthe frontend functions
-        eel.start("index.html",cmdline_args=['--start-fullscreen'], port=4000, mode='default')
+        eel.start("index.html",cmdline_args=['--start-fullscreen'], port=4000)
     else:
         #ono error happened
         raise EnvironmentError('Error: System is not Windows 10 or above')
@@ -145,18 +144,35 @@ def alphamain():
         query= str(query)
         query=query.lower()
         #SENTENCE CLEANUP (REMOVAL OF SOME EXTRA WORDS)
-        
+        for cleanup in extrawords:
+            if re.findall(cleanup,query):
+                query =re.sub(cleanup,"",query)
+            else:
+                continue
 #### If statements starts here
 
         #DIRECT FUNCTION CALLS
+        #check wikiedpia
         if re.findall("^wikipedia", query):
             query=re.sub("wikipedia","",query)
             swikipedia(query)
+        #check weather
         elif re.findall("^weather", query):
             query=re.sub("weather","",query)
             weathermain(query)
+        #take screenshot
+        elif re.findall("^screenshot",query):
+            screenshot()
+        #check system stats
+        elif re.findall("^check",query):
+            print("data check")
+            query=re.sub("check","",query)
+            if re.findall("^ram"):
+                checkram()
+                print("check RAM")
+            elif re.findall("^cpu"):
+                checkcpu()
         
-
         #QUESTION BASED RESPONSES
 
 
