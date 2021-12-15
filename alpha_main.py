@@ -175,12 +175,37 @@ def alphamain():
         elif re.findall("^check",query):
             print("data check")
             query=re.sub("check","",query)
-            if re.findall("^ram"):
+            print(query)
+            if query.startswith()=="ram":
                 checkram()
                 print("check RAM")
-            elif re.findall("^cpu"):
+            elif query.startswith()=="cpu":
                 checkcpu()
-        
+        #system actions
+        elif re.findall("^system",query):
+            query=re.sub("system","",query)
+            print(query)
+            stat=[
+                "stats",
+                "stat",
+                "statistics"
+            ]
+            for s in stat:
+                if s in query:
+                    final_res=system_stats()
+                    str(final_res)
+                    speak(final_res)
+                else:
+                    print("no stat :(")
+                    continue
+            if "shutdown" in query:
+                speak("initiating shutdown procedure")
+                os.system('shutdown -s')
+            
+            elif "restart" in query:
+                speak("Initiating reboot procedure")
+                os.system("shutdown -r")
+            
         #QUESTION BASED RESPONSES
 
 
