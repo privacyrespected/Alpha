@@ -12,6 +12,7 @@ from pprint import pprint
 import pyautogui
 import psutil
 import math
+import smtplib
 #notify functiion
 def notify(title, content, duration):
     dataconfirm = ToastNotifier()
@@ -146,4 +147,20 @@ def system_stats():
     total_memory = convert_size(psutil.virtual_memory().total)
     final_res = f"Currently {cpu_stats} percent of CPU, {memory_in_use} of RAM out of total {total_memory}  is being used and battery level is at {battery_percent} percent"
     return final_res
+
+def sendemail(user_email,user_email_password,recipent_email,message):
+    print(user_email)
+    print(len(user_email_password)*"*")
+    try:
+        mail=smtplib.SMTP("smtp.gmail.com",587)
+        mail.ehlo()
+        mail.starttls()
+        mail.login(user_email,user_email_password)
+        mail.sendmail(user_email,recipent_email,message)
+        mail.close()
+        return True
+    except Exception as e:
+        print(e)
+        reporterror(e,"Github the error")
+        return False        
 

@@ -207,7 +207,10 @@ def alphamain():
             elif "restart" in query:
                 speak("Initiating reboot procedure")
                 os.system("shutdown -r")
-
+        elif re.findall("^email",query):
+            user_email=str(user_email)
+            user_email_password=str(user_email_password)
+            
         
         #QUESTION BASED RESPONSES
 
