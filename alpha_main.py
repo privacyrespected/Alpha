@@ -176,11 +176,13 @@ def alphamain():
             print("data check")
             query=re.sub("check","",query)
             print(query)
-            if query.startswith()=="ram":
+            if query.startswith("ram"):
                 checkram()
                 print("check RAM")
-            elif query.startswith()=="cpu":
+            elif query.startswith("cpu"):
                 checkcpu()
+            elif query.startswith("network"):
+                print("network check") #to be added
         #system actions
         elif re.findall("^system",query):
             query=re.sub("system","",query)
@@ -205,7 +207,8 @@ def alphamain():
             elif "restart" in query:
                 speak("Initiating reboot procedure")
                 os.system("shutdown -r")
-            
+
+        
         #QUESTION BASED RESPONSES
 
 
