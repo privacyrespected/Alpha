@@ -207,11 +207,18 @@ def alphamain():
             elif "restart" in query:
                 speak("Initiating reboot procedure")
                 os.system("shutdown -r")
+        #developing
         elif re.findall("^email",query):
             user_email=str(user_email)
             user_email_password=str(user_email_password)
-            
+            speak("")
         
+        elif re.findall("^my location",query):
+            city,state,country=my_location()
+            speak("You are in ")
+            speak(city)
+            speak(state)
+            speak(country)
         #QUESTION BASED RESPONSES
 
 
