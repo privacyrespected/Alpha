@@ -15,6 +15,7 @@ try:
     from chatterbot import ChatBot
     from chatterbot.trainers import ListTrainer
     from chatterbot.trainers import ChatterBotCorpusTrainer
+    from playsound import playsound
 except Exception as e:
     reporterror(e, "that shouldn't happen. Please contact the developer")
 
@@ -124,12 +125,8 @@ def alpha_frontend():
     else:
         #ono error happened
         raise EnvironmentError('Error: System is not Windows 10 or above')
-
-
-def alphamain():
-    #greet the user
-    #put here such that frontend function and backend function can run simultaneously
-
+def startup(user_name,user_gender):
+    time.sleep(1)
     print(random.randint(1,2))
     random_functions = random.randint(1,2)
     if int(random_functions) == 1:
@@ -138,6 +135,22 @@ def alphamain():
         wishme2(user_name)
     else:
         reporterror("big shit happened","report it on github code=001")
+def startupnoise():
+    print("startupnoise initiated")
+    try:
+        playsound("startup.mp3")
+    except Exception as e:
+        reporterror("Cannt find file in directory","check if all files are properly installed")
+def alphamain():
+    #greet the user
+    #put here such that frontend function and backend function can run simultaneously
+    try:
+        Thread(target=startupnoise).start()
+        Thread(target=startup(user_name,user_gender)).start()
+    except Exception as e:
+        print(e)
+        reporterror(e, "github it or ask a cat")
+
 
     #loop for listenin
     while True:
@@ -219,9 +232,10 @@ def alphamain():
             speak(city)
             speak(state)
             speak(country)
+        
         #QUESTION BASED RESPONSES
-
-
+        elif re.findall("^who",query):
+            print("It can be a person on the internet or a person you know")
         #human interactions
         else:
             print("Human responses (from chatterbot)")
