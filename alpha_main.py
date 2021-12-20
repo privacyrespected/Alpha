@@ -213,6 +213,11 @@ def alphamain():
                 else:
                     print("no stat :(")
                     continue
+            if "initiate" in query:
+                query=re.sub("initiate","",query)
+            else:
+                continue
+            
             if "shutdown" in query:
                 speak("initiating shutdown procedure")
                 os.system('shutdown -s')
@@ -234,8 +239,7 @@ def alphamain():
             speak(country)
         
         #QUESTION BASED RESPONSES
-        elif re.findall("^who",query):
-            print("It can be a person on the internet or a person you know")
+
         #human interactions
         else:
             print("Human responses (from chatterbot)")
