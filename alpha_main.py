@@ -152,11 +152,17 @@ def startupnoise():
         playsound("startup.mp3")
     except Exception as e:
         reporterror("Cannt find file in directory","check if all files are properly installed")
+def startupnoise2():
+    try:
+        playsound("start3.mp3")
+    except Exception as e:
+        print(e, "audio problems, please check your audio related components")
 def alphamain():
     #greet the user
     #put here such that frontend function and backend function can run simultaneously
     try:
         Thread(target=startupnoise).start()
+        Thread(target=startupnoise2).start()
         Thread(target=startup(user_name,user_gender)).start()
     except Exception as e:
         print(e)
