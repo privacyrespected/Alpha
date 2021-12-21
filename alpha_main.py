@@ -31,17 +31,28 @@ chatbot=ChatBot("Alpha", logic_adapters=[
     'chatterbot.logic.TimeLogicAdapter',
     'chatterbot.logic.MathematicalEvaluation'
 ])
-
 trainer=ChatterBotCorpusTrainer(chatbot)
-trainer.train(
-    "chatterbot.corpus.english.greetings",
-    "chatterbot.corpus.english.conversations",
-    "chatterbot.corpus.english.ai"
-)
-trainer=ListTrainer(chatbot)
-trainer.train(conversation)
-#####
+def trainchatbot(trainer):
+    
+    trainer.train(
+        "chatterbot.corpus.english.greetings",
+        "chatterbot.corpus.english.conversations",
+        "chatterbot.corpus.english.ai"
+    )
+    trainer=ListTrainer(chatbot)
+    trainer.train(conversation)
 
+#####
+def play_startup_noise2():
+    try:
+        playsound("start2.mp3")
+    except Exception as e:
+        print(e)
+try:
+    Thread(target=trainchatbot(trainer=trainer)).start()
+    Thread(target=play_startup_noise2).start()
+except Exception as e:
+    reporterror(e,"Restart the application") 
 if path.isfile('data.json') == False:
     reporterror("data.json not found", "Run usersettings.exe please")
     notify("OPPs!","Cant start without data.json, try again","60")
@@ -217,7 +228,7 @@ def alphamain():
                 query=re.sub("initiate","",query)
             else:
                 continue
-            
+
             if "shutdown" in query:
                 speak("initiating shutdown procedure")
                 os.system('shutdown -s')
@@ -238,6 +249,9 @@ def alphamain():
             speak(state)
             speak(country)
         
+        elif re.findall("^add person",query):
+            print("add person to personal database")
+            
         #QUESTION BASED RESPONSES
 
         #human interactions
