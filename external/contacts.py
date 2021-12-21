@@ -18,10 +18,10 @@ def contact_delete(query_name):
     else:
         print(f"No contact exit for name: {query_name}")
         return "404 not found"
-def contact_addnew(query_name,query_gender):
+def contact_addnew(query_name,query_gender, query_status, query_personality, query_dob, query_phonenumber,query_nationality):
     query_name=query_name.title()
     cur.execute('insert into contact values(?,?)', 
-    (f'{query_name}', f'{query_gender}'))
+    (f'{query_name}', f'{query_gender}',f'{query_status}',f'{query_personality}',f'{query_dob}',f'{query_phonenumber}',f'{query_nationality}'))
     print("new contact added")
     dbase.commit()
-contact_addnew("gabs","male")
+#adds new  contact
