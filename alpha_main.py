@@ -102,6 +102,9 @@ else:
         shit=ToastNotifier()
         shit.show_toast("Alpha", e, duration=10, icon_path="app.ico")
 import eel
+from pyautogui import QWERTY
+
+from external.contacts import contact_addnew
 #eel function link
 eel.init("web")  
 
@@ -256,10 +259,30 @@ def alphamain():
         
         
  
-        
+        #also developing
         elif re.findall("^add person",query):
             print("add person to personal database")
-            
+            if "name" in query:
+                query_name=re.search("^name: (\w+)",query)
+            if "gender" in query:
+                query_gender=re.search("^gender: (\W+)",query)
+            if " male" in query:
+                query_gender="male"
+            if "female" in query:
+                query_gender="female"
+            if "status" in query:
+                query_status=re.search("^status: (\W+)",query)
+            if "personality" in query:
+                query_personality=re.search("^personality: (\W+)",query)
+            if "nationality" in query:
+                query_nationality=re.search("^nationality: (\W+)",query)
+            query_dob="null"
+            query_phonenumber="null"
+            try:
+                contact_addnew(query_name,query_gender,query_status,query_personality,query_dob,query_phonenumber,query_nationality)
+            except Exception as e:
+                speak(e)
+                continue
         #QUESTION BASED RESPONSES
 
         #human interactions
