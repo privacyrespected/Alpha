@@ -258,12 +258,18 @@ def alphamain():
             speak("")
         
         
- 
+
         #also developing
         elif re.findall("^add person",query):
             print("add person to personal database")
+            query_name=None
+            query_gender=None
+            query_status=None
+            query_personality=None
+            query_nationality=None
             if "name" in query:
                 query_name=re.search("^name: (\w+)",query)
+                
             if "gender" in query:
                 query_gender=re.search("^gender: (\W+)",query)
             if " male" in query:
@@ -278,11 +284,22 @@ def alphamain():
                 query_nationality=re.search("^nationality: (\W+)",query)
             query_dob="null"
             query_phonenumber="null"
-            try:
-                contact_addnew(query_name,query_gender,query_status,query_personality,query_dob,query_phonenumber,query_nationality)
-            except Exception as e:
-                speak(e)
-                continue
+            if query_name==None:
+                speak("error. I am unable to identify who this person is")
+            if query_gender==None:
+                speak("error. I am unable to identify the gender of this person")
+            if query_status==None:
+                speak("error. I am unable to identify the status of this person")
+            if query_personality==None:
+                speak("error. I am unable to identify the personality of this person")
+            if query_nationality==None:
+                speak("error.I am unablet to identify the nationality of this person")
+            else:
+                try:
+                    contact_addnew(query_name,query_gender,query_status,query_personality,query_dob,query_phonenumber,query_nationality)
+                except Exception as e:
+                    speak(e)
+                    continue
         #QUESTION BASED RESPONSES
 
         #human interactions
