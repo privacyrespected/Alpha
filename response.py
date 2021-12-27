@@ -245,7 +245,7 @@ conversation = [
     "what should i ask you?",
     "there are many things you can ask me",
 
-    "bye"
+    "bye",
     "talk to you later",
 
     "ok thanks for talking with me.",

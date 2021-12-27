@@ -15,6 +15,7 @@ try:
     from chatterbot import ChatBot
     from chatterbot.trainers import ListTrainer
     from chatterbot.trainers import ChatterBotCorpusTrainer
+    import chatterbot
     from playsound import playsound
 except Exception as e:
     reporterror(e, "that shouldn't happen. Please contact the developer")
@@ -28,8 +29,8 @@ print("Checking user data...")
 ###Chatbot variables definition
 chatbot=ChatBot("Alpha", logic_adapters=[
     'chatterbot.logic.BestMatch',
-    'chatterbot.logic.TimeLogicAdapter',
-    'chatterbot.logic.MathematicalEvaluation'
+    'chatterbot.logic.MathematicalEvaluation',
+    'chatterbot.logic.TimeLogicAdapter'
 ])
 trainer=ChatterBotCorpusTrainer(chatbot)
 def trainchatbot(trainer):
@@ -251,17 +252,15 @@ def alphamain():
                 speak(city)
                 speak(state)
                 speak(country)
-        #developing
-        elif re.findall("^email",query):
-            user_email=str(user_email)
-            user_email_password=str(user_email_password)
-            speak("")
-        
-        
-
+    
         #also developing
         elif re.findall("^add person",query):
             print("add person to personal database")
+            global query_name
+            global query_gender
+            global query_status
+            global query_personality
+            global query_nationality
             query_name=None
             query_gender=None
             query_status=None
@@ -269,7 +268,6 @@ def alphamain():
             query_nationality=None
             if "name" in query:
                 query_name=re.search("^name: (\w+)",query)
-                
             if "gender" in query:
                 query_gender=re.search("^gender: (\W+)",query)
             if " male" in query:
@@ -284,6 +282,7 @@ def alphamain():
                 query_nationality=re.search("^nationality: (\W+)",query)
             query_dob="null"
             query_phonenumber="null"
+            #check if there are missing variables params
             if query_name==None:
                 speak("error. I am unable to identify who this person is")
             if query_gender==None:
@@ -293,13 +292,15 @@ def alphamain():
             if query_personality==None:
                 speak("error. I am unable to identify the personality of this person")
             if query_nationality==None:
-                speak("error.I am unablet to identify the nationality of this person")
+                speak("error. I am unable to identify the nationality of this person")
             else:
                 try:
                     contact_addnew(query_name,query_gender,query_status,query_personality,query_dob,query_phonenumber,query_nationality)
                 except Exception as e:
                     speak(e)
                     continue
+
+        
         #QUESTION BASED RESPONSES
 
         #human interactions
