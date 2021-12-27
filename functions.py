@@ -2,6 +2,7 @@ def reporterror(errorr, suggest):
     print(errorr + suggest)
 #import modules
 from win10toast import ToastNotifier
+from external.contacts import contact_addnew
 import pyttsx3
 import speech_recognition as sr
 import wikipedia
@@ -166,4 +167,36 @@ def sendemail(user_email,user_email_password,recipent_email,message):
         print(e)
         reporterror(e,"Github the error")
         return False        
-
+query_name=None
+query_gender=None
+query_status=None
+query_personality=None
+query_nationality=None
+def addperson(query):
+    if "name" in query:
+        global query_name
+        if query_name is None:
+            query_name=re.search("^name: (\w+)",query)
+    if "gender" in query:
+        global query_gender
+        if query_gender is None:
+            query_gender=re.search("^gender: (\W+)",query)
+    if "status" in query:
+        global query_status
+        if query_status is None:
+            query_status=re.search("^status: (\W+)",query)
+    if "personality" in query:
+        global query_personality
+        if query_personality is None:
+            query_personality=re.search("^personality: (\W+)",query)
+    if "nationality" in query:
+        global query_nationality
+        if query_nationality is None:
+            query_nationality=re.search("^nationality: (\W+)",query)
+    query_dob="null"
+    query_phonenumber="null"
+    try:
+        contact_addnew(query_name,query_gender,query_status,query_personality,query_dob,query_phonenumber,query_nationality)
+    except Exception as e:
+        speak(e)
+        
