@@ -2,7 +2,6 @@ try:
     from functions import *
     from response import *
     import re
-    import regex
     from os import path
     import os
     import time
@@ -46,7 +45,7 @@ def trainchatbot(trainer):
 #####
 def play_startup_noise2():
     try:
-        playsound("start2.mp3")
+        playsound("audio/start2.mp3")
     except Exception as e:
         print(e)
 try:
@@ -152,12 +151,12 @@ def startup(user_name,user_gender):
 def startupnoise():
     print("startupnoise initiated")
     try:
-        playsound("startup.mp3")
+        playsound("audio/startup.mp3")
     except Exception as e:
         reporterror("Cannt find file in directory","check if all files are properly installed")
 def startupnoise2():
     try:
-        playsound("start3.mp3")
+        playsound("audio/start3.mp3")
     except Exception as e:
         print(e, "audio problems, please check your audio related components")
 def alphamain():

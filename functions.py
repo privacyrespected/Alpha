@@ -14,6 +14,7 @@ import pyautogui
 import psutil
 import math
 import smtplib
+from response import *
 #notify functiion
 def notify(title, content, duration):
     dataconfirm = ToastNotifier()
@@ -167,36 +168,24 @@ def sendemail(user_email,user_email_password,recipent_email,message):
         print(e)
         reporterror(e,"Github the error")
         return False        
-query_name=None
-query_gender=None
-query_status=None
-query_personality=None
-query_nationality=None
+
 def addperson(query):
+    #remove extra words here
+    for x in be:
+        if x in query:
+            query=re.sub(x,"",query)
+        else:
+            continue
+    ###all extra words removed here
     if "name" in query:
-        global query_name
-        if query_name is None:
-            query_name=re.search("^name: (\w+)",query)
+        query_name=re.search("^name (\w+)",query)
+        query_name=query_name.group(1)
     if "gender" in query:
-        global query_gender
-        if query_gender is None:
-            query_gender=re.search("^gender: (\W+)",query)
+        query_gender=re.search("^gender (\w+)",query)
+        query_gender=query_gender.group(1)
     if "status" in query:
-        global query_status
-        if query_status is None:
-            query_status=re.search("^status: (\W+)",query)
+        query_status=re.search("^status (\w+)",query)
+        query_status=query_status.group(1)
     if "personality" in query:
-        global query_personality
-        if query_personality is None:
-            query_personality=re.search("^personality: (\W+)",query)
-    if "nationality" in query:
-        global query_nationality
-        if query_nationality is None:
-            query_nationality=re.search("^nationality: (\W+)",query)
-    query_dob="null"
-    query_phonenumber="null"
-    try:
-        contact_addnew(query_name,query_gender,query_status,query_personality,query_dob,query_phonenumber,query_nationality)
-    except Exception as e:
-        speak(e)
-        
+        query_personality=re.search("^personality (\w+)",query)
+        query_personality=query_personality.group(1)
