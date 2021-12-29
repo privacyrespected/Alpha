@@ -25,8 +25,7 @@ Alpha has been made in attempt to expand as a smart virtual assistant, yet being
 For coders:
 1. Install python 3.6 (64bit)
 2. Run this line in your terminal
-``` python -m setup.py install
-```
+``` python -m setup.py install ```
 3. Run usersettings.py
 4. Good to go!
 
