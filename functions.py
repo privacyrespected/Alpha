@@ -189,3 +189,14 @@ def addperson(query):
     if "personality" in query:
         query_personality=re.search("^personality (\w+)",query)
         query_personality=query_personality.group(1)
+    if "nationality" in query:
+        query_nationality=re.search("^nationality (\W+)",query)
+        query_nationality=query_nationality.group(1)
+    query_dob="Null"
+    query_phonenumber="Null"
+    query_email="Null"
+    try:
+        contact_addnew(query_name,query_gender, query_status, query_personality, query_dob, query_phonenumber,query_email,query_nationality)
+    except Exception as e:
+        print(e)
+        reporterror(e, "github the error")
