@@ -251,12 +251,6 @@ def alphamain():
                 speak(state)
                 speak(country)
     
-        #also developing
-        elif re.findall("^add person",query):
-            print("add person to personal database")
-            addperson(query)
-            
-
         
         #QUESTION BASED RESPONSES
 
