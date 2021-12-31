@@ -1,6 +1,6 @@
 # Alpha
 Alpha is the ongoing expanding virtual assistance. Version 2 is an upgraded version
-
+NOTE: DEVELOPMENT WILL HALT UNTIL FURTHER NOTICE AFTER THE RELEASE OF V3.0 
 # Current Version status:
 1. Version: 2.1
 

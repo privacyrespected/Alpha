@@ -1,5 +1,6 @@
 try:
     from functions import *
+    from chatdata import *
     from response import *
     import re
     from os import path
