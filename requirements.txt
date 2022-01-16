@@ -1,6 +1,8 @@
 pyttsx3
-speech_recognition
+SpeechRecognition
 psutil
 pyautogui
 win10toast
 wikipedia
+eel
+playsound

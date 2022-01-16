@@ -3,3 +3,5 @@ def notify(title, content, duration):
     dataconfirm = ToastNotifier()
     icon_path="app.ico"
     dataconfirm.show_toast(title, content, duration, icon_path)
+def reporterror(title, content,duration):
+    notify(title, content,duration)
