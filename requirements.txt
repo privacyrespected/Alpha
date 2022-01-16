@@ -1,0 +1,6 @@
+pyttsx3
+speech_recognition
+psutil
+pyautogui
+win10toast
+wikipedia
