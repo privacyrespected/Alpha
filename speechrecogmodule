@@ -1,12 +1,5 @@
-from re import L
-import pyttsx3
+#add back when needed
 import speech_recognition as sr
-def speak(audio):
-    print("Alpha: " + audio)
-    engine=pyttsx3.init()
-    engine.say(audio)
-    engine.runAndWait()
-
 def listen():
     r = sr.Recognizer()
     with sr.Microphone() as source:

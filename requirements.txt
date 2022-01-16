@@ -1,8 +1,0 @@
-pyttsx3
-SpeechRecognition
-psutil
-pyautogui
-win10toast
-wikipedia
-eel
-playsound
