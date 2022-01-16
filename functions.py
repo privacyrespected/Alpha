@@ -2,7 +2,6 @@ def reporterror(errorr, suggest):
     print(errorr + suggest)
 #import modules
 from win10toast import ToastNotifier
-from external.contacts import contact_addnew
 import pyttsx3
 import speech_recognition as sr
 import wikipedia
