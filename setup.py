@@ -26,7 +26,8 @@ setup(
         'pprintpp>=0.4.0',
         'PyAutoGUI>=0.9.52',
         'psutil>=5.7.3',
-        'playsound>=1.2.2'
+        'playsound>=1.2.2',
+        "spacy<=2.3.3"
     ],
     license=open('LICENSE').read()
 )

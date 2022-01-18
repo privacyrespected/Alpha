@@ -17,6 +17,8 @@ try:
     from chatterbot.trainers import ChatterBotCorpusTrainer
     import chatterbot
     from playsound import playsound
+    import en_core_web_sm
+    nlp = en_core_web_sm.load()
 except Exception as e:
     reporterror(e, "that shouldn't happen. Please contact the developer")
 
@@ -27,11 +29,24 @@ print("For update logs please view it on github of this repo")
 print("Checking user data...")
 
 ###Chatbot variables definition
-chatbot=ChatBot("Alpha", logic_adapters=[
-    'chatterbot.logic.BestMatch',
-    'chatterbot.logic.MathematicalEvaluation',
-    'chatterbot.logic.TimeLogicAdapter'
-])
+
+chatbot = ChatBot(
+    'Alpha',
+    storage_adapter='chatterbot.storage.SQLStorageAdapter',
+    logic_adapters=[
+        {
+            'import_path': 'chatterbot.logic.BestMatch',
+            'default_response': 'I am sorry, but I do not understand.',
+            'maximum_similarity_threshold': 0.50
+        },
+        {
+            'import_path': 'chatterbot.logic.MathematicalEvaluation',
+            'default_response': 'I am sorry, but I do not understand (time).',
+            'maximum_similarity_threshold': 0.40
+        }
+    ]
+)
+
 trainer=ChatterBotCorpusTrainer(chatbot)
 def trainchatbot(trainer):
     
@@ -102,6 +117,7 @@ else:
         print(e)
         shit=ToastNotifier()
         shit.show_toast("Alpha", e, duration=10, icon_path="app.ico")
+from asyncio.windows_events import NULL
 import eel
 from pyautogui import QWERTY
 
@@ -189,75 +205,78 @@ def alphamain():
 
         #DIRECT FUNCTION CALLS
         #check wikiedpia
-        if re.findall("^wikipedia", query):
-            query=re.sub("wikipedia","",query)
-            swikipedia(query)
-        #check weather
-        elif re.findall("^weather", query):
-            if "my location" in query:
-                city, state,country= my_location()
-                city=str(city)
-                weathermain(city)
-            else:
-                query=re.sub("weather","",query)
-                weathermain(query)
-        #take screenshot
-        elif re.findall("^screenshot",query):
-            screenshot()
-        #check system stats
-        elif re.findall("^check",query):
-            print("data check")
-            query=re.sub("check","",query)
-            print(query)
-            if query.startswith("ram"):
-                checkram()
-                print("check RAM")
-            elif query.startswith("cpu"):
-                checkcpu()
-            elif query.startswith("network"):
-                print("network check") #to be added
-        #system actions
-        elif re.findall("^system",query):
-            query=re.sub("system","",query)
-            print(query)
-            stat=[
-                "stats",
-                "stat",
-                "statistics"
-            ]
-            for s in stat:
-                if s in query:
-                    final_res=system_stats()
-                    str(final_res)
-                    speak(final_res)
-                else:
-                    print("no stat :(")
-                    continue
-            if "initiate" in query:
-                query=re.sub("initiate","",query)
-            else:
-                continue
-
-            if "shutdown" in query:
-                speak("initiating shutdown procedure")
-                os.system('shutdown -s')
-            
-            elif "restart" in query:
-                speak("Initiating reboot procedure")
-                os.system("shutdown -r")       
-            elif re.findall("^my location",query):
-                city,state,country=my_location()
-                speak("You are in ")
-                speak(city)
-                speak(state)
-                speak(country)
-    
-        #human interactions
+        if query is NULL:
+            continue
         else:
-            print("Human responses (from chatterbot)")
-            response=chatbot.get_response(query)
-            speak(response)
-            trainer.export_for_training("./conversation_data.json")
+            if re.findall("^wikipedia", query):
+                query=re.sub("wikipedia","",query)
+                swikipedia(query)
+            #check weather
+            elif re.findall("^weather", query):
+                if "my location" in query:
+                    city, state,country= my_location()
+                    city=str(city)
+                    weathermain(city)
+                else:
+                    query=re.sub("weather","",query)
+                    weathermain(query)
+            #take screenshot
+            elif re.findall("^screenshot",query):
+                screenshot()
+            #check system stats
+            elif re.findall("^check",query):
+                print("data check")
+                query=re.sub("check","",query)
+                print(query)
+                if query.startswith("ram"):
+                    checkram()
+                    print("check RAM")
+                elif query.startswith("cpu"):
+                    checkcpu()
+                elif query.startswith("network"):
+                    print("network check") #to be added
+            #system actions
+            elif re.findall("^system",query):
+                query=re.sub("system","",query)
+                print(query)
+                stat=[
+                    "stats",
+                    "stat",
+                    "statistics"
+                ]
+                for s in stat:
+                    if s in query:
+                        final_res=system_stats()
+                        str(final_res)
+                        speak(final_res)
+                    else:
+                        print("no stat :(")
+                        continue
+                if "initiate" in query:
+                    query=re.sub("initiate","",query)
+                else:
+                    continue
+
+                if "shutdown" in query:
+                    speak("initiating shutdown procedure")
+                    os.system('shutdown -s')
+                
+                elif "restart" in query:
+                    speak("Initiating reboot procedure")
+                    os.system("shutdown -r")       
+                elif re.findall("^my location",query):
+                    city,state,country=my_location()
+                    speak("You are in ")
+                    speak(city)
+                    speak(state)
+                    speak(country)
+        
+            #human interactions
+            else:
+                print("Human responses (from chatterbot)")
+                response=chatbot.get_response(query)
+                speak(response)
+                trainer.export_for_training("./conversation_data.json")
 
 
 #initiate functions

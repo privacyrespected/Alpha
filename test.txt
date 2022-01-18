@@ -1,3 +1,7 @@
+python -m spacy download en_core_web_md
+python -m spacy link en_core_web_md en
+
+
 ```py
 from chatterbot import ChatBot, conversation
 from chatterbot.trainers import ChatterBotCorpusTrainer
