@@ -29,7 +29,7 @@ def checknetwork1():
 #frontend functions
 def alpha_frontend():
     if sys.platform in ['win32', 'win64'] and int(platform.release())>=10:
-        eel.start("index.html", cmdline_args=['--start-fullscreen'],port=4000)
+        eel.start("index.html", block=False, cmdline_args=['--start-fullscreen'],port=4000)
     else:
         raise EnvironmentError("Error: system is not windows 10 or above")
 

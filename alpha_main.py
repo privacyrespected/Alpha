@@ -10,6 +10,7 @@ from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from corpus.customcorpus import * #imports the local corpus
 from chatterbot import preprocessors
+from modules.boot_loader import bootloader
 #this line implements the custom chattebot preprocessors for extra word filter
 from preprocessors import clean_words
 ###############
@@ -89,6 +90,9 @@ try:
 except Exception as e:
     notify("OHNO", e ,90)
     print(e)
-# 3. start frontend
-# 4. time sleep 1 then start bootmessage
-# 5. start the ALPHAMAIN
+#boot the system
+try:
+    bootloader()
+except Exception as e:
+    notify("OHNO", e ,90)
+    print(e)
