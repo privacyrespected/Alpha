@@ -15,6 +15,13 @@ from preprocessors import clean_words
 
 #importing modules from modules files
 from modules.sense import *
+from modules.boot_checkuserdata import *
+from modules.boot_message import *
+from modules.boot_noise import *
+from modules.mainsystem import *
+from modules.search import *
+from modules.weather import *
+################
 #defines the bot
 chatbot = ChatBot(
     'Alpha',
