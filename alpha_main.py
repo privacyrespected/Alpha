@@ -3,14 +3,17 @@
 print("Alpha V3")
 print("nuggetcatsoftware@gmail.com")
 
-#import modules
+#import modules for chatterbot
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
-from customcorpus import *
+from corpus.customcorpus import * #imports the local corpus
 from chatterbot import preprocessors
-#this line implements the custom chatterbot preprocessors for extra word filter
+#this line implements the custom chattebot preprocessors for extra word filter
 from preprocessors import clean_words
+###############
+
+#importing modules from modules files
 from modules.sense import *
 #defines the bot
 chatbot = ChatBot(
