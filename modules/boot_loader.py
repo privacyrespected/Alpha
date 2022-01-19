@@ -1,9 +1,9 @@
 from sys import modules
 from threading import Thread
-from boot_noise import *
-from boot_message import *
-from boot_checkuserdata import checkuserdata
-from sense import notify
+from modules.boot_noise import *
+from modules.boot_message import *
+from modules.boot_checkuserdata import checkuserdata
+from modules.sense import notify
 import random
 def startup():
     user_name=checkuserdata()[0]

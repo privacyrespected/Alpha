@@ -1,6 +1,6 @@
 import time
-from datetime import datetime
-from sense import speak
+import datetime
+from modules.sense import speak
 def wishMe(user_gender):
     hour = int(datetime.datetime.now().hour)
     if hour>=0 and hour<12:

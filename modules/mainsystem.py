@@ -1,6 +1,6 @@
 from pyautogui import screenshot
 import psutil
-from sense import speak
+from modules.sense import speak
 import requests
 #this program defines all possible ways to access computer statistic
 #will expand to other devices connected in the long future we do not kno

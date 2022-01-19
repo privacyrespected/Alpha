@@ -1,8 +1,7 @@
 from os import path
 import json
 import os
-from tkinter import E
-from sense import notify
+from modules.sense import notify
 import time
 def checkuserdata():
     #this file checks for user data

@@ -1,3 +1,4 @@
+import time
 import pyttsx3
 import speech_recognition as sr
 from win10toast import ToastNotifier
@@ -31,8 +32,15 @@ def listen():
         return query
 
 def notify(title, content, duration):
-    notify= ToastNotifier()
-    icon_path=None
-    notify.show_toast(title, content, icon_path, duration)
-
+    ctime= time.ctime()
+    file=open("error.txt","w")
+    file.write(ctime)
+    file.write("\n")
+    file.write(title)
+    file.write("\n")
+    file.write(content)
+    file.write("\n")
+    file.write(duration)
+    file.write("\n")
+    file.close()
 

@@ -1,4 +1,4 @@
-import playsound
+from playsound import playsound
 import time
 def startnoise1(): #this starts when training happens
     time.sleep(2)

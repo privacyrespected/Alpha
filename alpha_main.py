@@ -24,6 +24,8 @@ from modules.mainsystem import *
 from modules.search import *
 from modules.weather import *
 ################
+#importing modules for the UI
+from UI import alpha_frontend
 #defines the bot
 chatbot = ChatBot(
     'Alpha',
@@ -47,7 +49,7 @@ chatbot = ChatBot(
         'chatterbot.preprocessors.unescape_html',   #Convert escaped html characters into unescaped html characters
         'chatterbot.preprocessors.convert_to_ascii',
         'preprocessors.clean_words.clean_words',
-        'preprocessors,clean_puncuations,clean_puncuations'
+        'preprocessors.clean_puncuations.clean_puncuations'
     ]
 )
 
@@ -92,7 +94,10 @@ except Exception as e:
     print(e)
 #boot the system
 try:
-    bootloader()
+    Thread(target=bootloader()).start()
+    Thread(target=alpha_frontend()).start()
 except Exception as e:
     notify("OHNO", e ,90)
     print(e)
+while True:
+    speak("HIs")

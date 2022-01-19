@@ -20,7 +20,7 @@ puncuations=[
 
 ]
 
-def clean_punctuations(statement):
+def clean_puncuations(statement):
     print(statement)
     for x in puncuations:
         if x in statement.text:
