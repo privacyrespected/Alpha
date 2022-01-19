@@ -33,18 +33,6 @@ def checkuserdata():
                 user_hobby=main_data["userhobby"]
                 user_interest=main_data["userinterest"]
                 user_discord=main_data["userpersonaldiscordbottoken"]
-                print("Confirming user data")
-                print(user_name)
-                print(usercity)
-                print(user_gender)
-                print(user_dob)
-                print(user_email)
-                print(user_email_password)
-                print(user_species)
-                print(user_bloodtype)
-                print(user_skincolor)
-                print(user_ethnicity)
-                print("All data confirmed and detected")
         except Exception as e:
             print(e)
             notify("OHNO", e, 90)

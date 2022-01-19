@@ -71,10 +71,6 @@ def trainchatbot(trainer): #works in tandem with bootnoise.startupnoise1()
     trainer.train(conversation9)
 
 
-
-
-
-
 #working path starts here (listed here for checklist)
 # 1. check user data
 # 2. train NLP data ++ play boot sound 1
