@@ -1,6 +1,7 @@
 import playsound
-
+import time
 def startnoise1(): #this starts when training happens
+    time.sleep(2)
     try:
         playsound("audio/start2.mp3")
     except Exception as e:

@@ -7,7 +7,7 @@ import time
 def checkuserdata():
     #this file checks for user data
     if path.isfile('data.json') == False:
-        notify("OPPs!","Cant start without data.json, try again","60")
+        notify("OPPs!","Cant start without data.json, try again",60)
         time.sleep(30)
         exit()
     else:

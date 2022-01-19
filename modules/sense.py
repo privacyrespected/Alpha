@@ -31,7 +31,8 @@ def listen():
         return query
 
 def notify(title, content, duration):
-    dataconfirm = ToastNotifier()
-    icon_path="app.ico"
-    dataconfirm.show_toast(title, content, duration, icon_path)
+    notify= ToastNotifier()
+    icon_path=None
+    notify.show_toast(title, content, icon_path, duration)
+
 

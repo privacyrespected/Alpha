@@ -1,0 +1,22 @@
+{
+    "main_user_data": {
+        "dictpref": "british",
+        "userbloodtype": "null",
+        "usercity": "Newport",
+        "userdob": "1997-03-14",
+        "useremail": "test@gmail.com",
+        "useremailpass": "test123!!",
+        "userethnicity": "null",
+        "usergender": "Male",
+        "userheight": "null",
+        "userhobby": "null",
+        "userinterest": "null",
+        "username": "test",
+        "userpersonaldiscordbottoken": "null",
+        "userreligion": "null",
+        "userskincolor": "null",
+        "userspecies": "homo sapien",
+        "usersport": "null",
+        "userweight": "null"
+    }
+}

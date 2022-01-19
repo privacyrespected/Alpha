@@ -14,6 +14,7 @@ from os import path
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
+from modules.sense import speak
 #imports the notification system.
 from win10toast import ToastNotifier
 
@@ -52,11 +53,10 @@ def usersettingwrite(username, usercity, user_gender, userdob, useremail, userem
                     "dictpref":"british"
                 }
             }
+            speak("Please wait while we load your data")
             json.dump(data, f, ensure_ascii=False, sort_keys=True, indent=4)
             #notifies the user that 
-            dataconfirm = ToastNotifier()
-            dataconfirm.show_toast("Alpha", "User data confirmed.", duration = 20, icon_path ="app.ico")
-            time.sleep(5)
+            speak("Data loaded and confirmed")
             exit()
     except Exception as e:
         print(e)

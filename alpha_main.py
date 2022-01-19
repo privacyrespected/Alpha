@@ -4,6 +4,7 @@ print("Alpha V3")
 print("nuggetcatsoftware@gmail.com")
 
 #import modules for chatterbot
+from threading import Thread
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
@@ -69,3 +70,29 @@ def trainchatbot(trainer): #works in tandem with bootnoise.startupnoise1()
     trainer.train(conversation8)
     trainer.train(conversation9)
 
+
+
+
+
+
+#working path starts here (listed here for checklist)
+# 1. check user data
+# 2. train NLP data ++ play boot sound 1
+# 3. start frontend
+# 4. time sleep 1 then start bootmessage
+# 5. start the rest of the program
+
+
+#general framework
+# 1. check user data
+checkuserdata()
+# 2. train NLP data ++ play boot sound 1
+try:
+    Thread(target=trainchatbot(trainer)).start()
+    Thread(target=startnoise1()).start()
+except Exception as e:
+    notify("OHNO", e ,90)
+    print(e)
+# 3. start frontend
+# 4. time sleep 1 then start bootmessage
+# 5. start the ALPHAMAIN
