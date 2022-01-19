@@ -7,11 +7,11 @@ print("nuggetcatsoftware@gmail.com")
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
-from customcorpus import conversation
+from customcorpus import *
 from chatterbot import preprocessors
 #this line implements the custom chatterbot preprocessors for extra word filter
 from preprocessors import clean_words
-
+from modules.sense import *
 #defines the bot
 chatbot = ChatBot(
     'Alpha',
@@ -41,10 +41,21 @@ chatbot = ChatBot(
 
 #set params for TRAINING THE BOT
 trainer=ChatterBotCorpusTrainer(chatbot)
-trainer.train(
-    "chatterbot.corpus.english.greetings",
-    "chatterbot.corpus.english.conversations",
-    "chatterbot.corpus.english.ai"
-)
-trainer=ListTrainer(chatbot)
-trainer.train(conversation)
+def trainchatbot(trainer): #works in tandem with bootnoise.startupnoise1()
+    trainer.train(
+        "chatterbot.corpus.english.greetings",
+        "chatterbot.corpus.english.conversations",
+        "chatterbot.corpus.english.ai"
+    )
+    trainer=ListTrainer(chatbot)
+    trainer.train(conversation)
+    trainer.train(conversation1)
+    trainer.train(conversation2)
+    trainer.train(conversation3)
+    trainer.train(conversation4)
+    trainer.train(conversation5)
+    trainer.train(conversation6)
+    trainer.train(conversation7)
+    trainer.train(conversation8)
+    trainer.train(conversation9)
+
