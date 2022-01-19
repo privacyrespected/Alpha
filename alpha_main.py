@@ -34,7 +34,8 @@ chatbot = ChatBot(
         'chatterbot.preprocessors.clean_whitespace', #cleans any wrong spacing with regex
         'chatterbot.preprocessors.unescape_html',   #Convert escaped html characters into unescaped html characters
         'chatterbot.preprocessors.convert_to_ascii',
-        'preprocessors.clean_words.clean_words'
+        'preprocessors.clean_words.clean_words',
+        'preprocessors,clean_puncuations,clean_puncuations'
     ]
 )
 

@@ -1,4 +1,3 @@
-import re
 #this file imports the regex and cleans any extra words that is preventing the processing of this program
 
 #this is the list of the words that will be removed during processing
