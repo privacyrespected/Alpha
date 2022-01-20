@@ -10,22 +10,24 @@ from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from corpus.customcorpus import * #imports the local corpus
 from chatterbot import preprocessors
-from modules.boot_loader import bootloader
+from modules.bootloader import bootloader
 #this line implements the custom chattebot preprocessors for extra word filter
 from preprocessors import clean_words
 ###############
 
 #importing modules from modules files
 from modules.sense import *
-from modules.boot_checkuserdata import *
-from modules.boot_message import *
-from modules.boot_noise import *
 from modules.mainsystem import *
 from modules.search import *
 from modules.weather import *
 ################
 #importing modules for the UI
 from UI import alpha_frontend
+
+#import extra modules
+from playsound import playsound
+
+####
 #defines the bot
 chatbot = ChatBot(
     'Alpha',
@@ -82,13 +84,10 @@ def trainchatbot(trainer): #works in tandem with bootnoise.startupnoise1()
 # 5. start the rest of the program
 
 
-#general framework
-# 1. check user data
-checkuserdata()
 # 2. train NLP data ++ play boot sound 1
 try:
     Thread(target=trainchatbot(trainer)).start()
-    Thread(target=startnoise1()).start()
+    Thread(target=playsound("audio/slowtypebeep.mp3")).start()
 except Exception as e:
     notify("OHNO", e ,90)
     print(e)
