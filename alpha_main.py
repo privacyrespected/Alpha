@@ -98,5 +98,6 @@ try:
 except Exception as e:
     notify("OHNO", e ,90)
     print(e)
+    
 while True:
     speak("HIs")

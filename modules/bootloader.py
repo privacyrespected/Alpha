@@ -87,6 +87,8 @@ def startup1():
         wishMe(user_gender)
     elif int(random_functions) == 2:
         wishme2(user_name)
-def startup_sounds():
+def bootloader():
     Thread(target=playsound("audio/typingbeep.mp3")).start()
     Thread(target=playsound("audio/radar.mp3")).start()
+    Thread(target=startup1()).start()
+    
