@@ -2,9 +2,9 @@ from sys import modules
 from threading import Thread
 from playsound import playsound
 import time
-from modules.sense import notify
+from sense import notify
 import random
-from modules.sense import speak
+from sense import speak
 import json
 from os import path
 import datetime
@@ -87,8 +87,8 @@ def startup1():
         wishMe(user_gender)
     elif int(random_functions) == 2:
         wishme2(user_name)
-def bootloader():
-    Thread(target=playsound("audio/typingbeep.mp3")).start()
-    Thread(target=playsound("audio/radar.mp3")).start()
-    Thread(target=startup1()).start()
-    
+def bootload():
+    if __name__ == "__main__":
+        Thread(target=startup1()).start
+        Thread(target=playsound(u"audio/slowtypebeep.mp3")).start()
+bootload()

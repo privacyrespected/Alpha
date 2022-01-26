@@ -1,0 +1,22 @@
+# python3.7+
+import asyncio
+
+
+async def hello():
+    while True:
+        print("Hello")
+        await asyncio.sleep(1)
+
+
+async def world():
+    while True:
+        print("World")
+        await asyncio.sleep(1)
+
+
+async def main():
+    await asyncio.gather(hello(), world())
+
+
+asyncio.run(main())
+Note asyncio.sleep(1) call in each coroutine. It's done to pass the control to the event loop and let another coroutine to be executed.

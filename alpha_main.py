@@ -10,7 +10,7 @@ from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from corpus.customcorpus import * #imports the local corpus
 from chatterbot import preprocessors
-from modules.bootloader import bootloader
+from modules.bootloader import startup1
 #this line implements the custom chattebot preprocessors for extra word filter
 from preprocessors import clean_words
 ###############
@@ -76,28 +76,10 @@ def trainchatbot(trainer): #works in tandem with bootnoise.startupnoise1()
     trainer.train(conversation9)
 
 
-#working path starts here (listed here for checklist)
-# 1. check user data
-# 2. train NLP data ++ play boot sound 1
-# 3. start frontend
-# 4. time sleep 1 then start bootmessage
-# 5. start the rest of the program
-
-
-# 2. train NLP data ++ play boot sound 1
-try:
-    Thread(target=trainchatbot(trainer)).start()
-    Thread(target=playsound("audio/slowtypebeep.mp3")).start()
-except Exception as e:
-    notify("OHNO", e ,90)
-    print(e)
-#boot the system
-try:
-    Thread(target=bootloader()).start()
-    Thread(target=alpha_frontend()).start()
-except Exception as e:
-    notify("OHNO", e ,90)
-    print(e)
-    
-while True:
-    speak("HIs")
+def alpha_main():
+    startup1()
+    while True:
+        query=listen.lower()
+        query=str(query)
+        
+        

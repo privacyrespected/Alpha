@@ -26,7 +26,7 @@ setup(
         'pprintpp>=0.4.0',
         'PyAutoGUI>=0.9.52',
         'psutil>=5.7.3',
-        'playsound>=1.2.2',
+        'playsound==1.2.2',
         "wikipedia",
         "PyAudio> =0.2.11",
         "spacy>=2.2.2",
