@@ -8,7 +8,7 @@ def print_weather(result,usercity):
     speak("{}'s temperature is {} degress Celcius ".format(usercity,result['main']['temp']-273))
     speak("Wind speed is {} meters per second".format(result['wind']['speed']))
 	
-    speak("The weather looks {}".format(result['weather'][0]['description']))
+    speak("The weather description is {}".format(result['weather'][0]['description']))
 	
     print("Weather: {}".format(result['weather'][0]['main']))
 def weathermain(usercity):
