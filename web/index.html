@@ -203,10 +203,11 @@ document.getElementById("demodate").innerHTML = d.getDate();
     textarea.onkeypress = (event) => {
       // console.log (`${event.code} key pressed)
       if ( keycode == 13) {
-        event.preventDefault()
-        let x = document.getElementById("note_input")
+        //event.preventDefault()
+        let commandinput = document.getElementById("note_input")
         console.log(`${event.code} key pressed`)
-        console.log(x)
+        console.log(commandinput)
+        eel.checkcommand(commandinput)(callback3)
         // only used for debugging the front end 
       }
     }

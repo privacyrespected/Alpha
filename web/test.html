@@ -11,7 +11,9 @@
                 const keyCode = event.keyCode
                 // console.log(`${event.code} key pressed`)
                 if (keyCode == 13) {
-                    event.preventDefault()
+                    //event.preventDefault()
+                    // this line prevents user from starting a new line, completely optional
+                    
                     let x = document.getElementById("note_input").value
                     console.log(`${event.code} key pressed`)
                     console.log(x)

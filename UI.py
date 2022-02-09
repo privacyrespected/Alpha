@@ -5,6 +5,7 @@ import eel
 import psutil
 import sys
 import platform
+from frontend_command import Pcommand
 eel.init("web")
 @eel.expose
 def checkram():
@@ -27,6 +28,7 @@ def checknetwork1():
 @eel.expose
 def checkcommand(commandinput):
     print(commandinput)
+    Pcommand(commandinput)
 
 #frontend functions
 def alpha_frontend():

@@ -1,3 +1,4 @@
+import asyncio
 from sys import modules
 from threading import Thread
 from playsound import playsound
@@ -79,7 +80,7 @@ def checkuserdata():
         return user_name, usercity, user_gender,user_dob, user_email,user_email_password, user_species, user_bloodtype,user_skincolor,user_ethnicity
         
 
-def startup1():
+async def startup1():
     user_name=checkuserdata()[0]
     user_gender=checkuserdata()[2]
     random_functions = random.randint(1,2)
@@ -87,8 +88,12 @@ def startup1():
         wishMe(user_gender)
     elif int(random_functions) == 2:
         wishme2(user_name)
+    await asyncio.sleep(1)
+async def ps1():
+    playsound(u"audio/slowtypebeep.mp3")
+    await asyncio.sleep(1)
 def bootload():
     if __name__ == "__main__":
         Thread(target=startup1()).start
-        Thread(target=playsound(u"audio/slowtypebeep.mp3")).start()
+        Thread(target=ps1).start()
 bootload()

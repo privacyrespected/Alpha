@@ -20,11 +20,7 @@ function checknetwork(){
 eel.checknetwork1()(callback2)
 };
 
-function callbacl3(commandinput){
+function callback3(commandinput){
     document.getElementById("commandinput").innerHTML=commandinput
 };
 
-function checkcommand(){
-    var commandinput=document.getElementById("note_input").value
-    eel.checkcommand(commandinput)  
-};
