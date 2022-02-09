@@ -198,17 +198,23 @@ document.getElementById("demodate").innerHTML = d.getDate();
   <div id="particle12" class="vline"></div>
 
   <!-- #######################################################################################################################################################################################################################-->
-  <textarea id="note_input" rows="12" cols="44">Alpha-Alpaca Update
-    Update Patch Notes: (Alpha-V2.0):
-    1. Brand new UI!
-    2. New functions
-    3. Better Machine learning
-    4. Application restructuring 
-    5. Added the text you are seeing right now.
-
-    Tips: You can edit this text for your notes!
+  <script>
+    const textarea = document.querySelector("#note_input")
+    textarea.onkeypress = (event) => {
+      // console.log (`${event.code} key pressed)
+      if ( keycode == 13) {
+        event.preventDefault()
+        let x = document.getElementById("note_input")
+        console.log(`${event.code} key pressed`)
+        console.log(x)
+        // only used for debugging the front end 
+      }
+    }
+  </script>
+  <textarea id="note_input" rows="12" cols="44">
 
   </textarea>
+  
 </div>
 
 
