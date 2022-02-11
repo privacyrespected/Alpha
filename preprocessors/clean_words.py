@@ -1,8 +1,4 @@
-#this file imports the regex and cleans any extra words that is preventing the processing of this program
-
-#this is the list of the words that will be removed during processing
-#it will be rmemoved at the start so be aware that you do not process any of these words
-
+#SAMPLE FOR PREPROCESSORS
 extrawords=[
     "please",
     "would you mind",

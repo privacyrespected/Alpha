@@ -29,6 +29,16 @@ from playsound import playsound
 
 ####
 from modules.bootloader import *
+extrawords=[
+    "please",
+    "would you mind",
+    "do you mind",
+    "tell me",
+    "let me know",
+    "you",
+    "telling me",
+    "can you"
+]
 #defines the bot
 chatbot = ChatBot(
     'Alpha',
@@ -51,8 +61,6 @@ chatbot = ChatBot(
         'chatterbot.preprocessors.clean_whitespace', #cleans any wrong spacing with regex
         'chatterbot.preprocessors.unescape_html',   #Convert escaped html characters into unescaped html characters
         'chatterbot.preprocessors.convert_to_ascii',
-        'preprocessors.clean_words.clean_words',
-        'preprocessors.clean_puncuations.clean_puncuations'
     ]
 )
 
@@ -91,8 +99,29 @@ def alpha_main():
         if query.startswith("alpha"):
             #listen 
             print("listen")
+            for x in extrawords:
+                if x in query:
+                    query= query.replace(x,"")
+                else:
+                    continue
+            #direct function calls
+            if query.startswith("wikipedia"):
+                query=query.replace("wikipedia","")
+                search_wiki(query)
+            elif query.startswith("wiki"):
+                query=query.replace("wiki","")
+                search_wiki(query)
+            elif query.startswith("dictionary"): #need to scan: allow one word only
+                query=query.replace("dictionary","")
+                search_meaning(query)
+            elif query.startswith("meaning"):
+                query=query.replace("meaning","")
+                search_meaning(query)
 
-        
+
+            
+
+            #cannot identify, dont understand or give AI response
         else:    
             #ignore 
             print("ignore")
