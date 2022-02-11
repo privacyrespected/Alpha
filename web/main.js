@@ -24,3 +24,7 @@ function callback3(commandinput){
     document.getElementById("commandinput").innerHTML=commandinput
 };
 
+function checkcommand(commandinput){
+    
+    eel.checkcommand(commandinput)(callback3)
+}

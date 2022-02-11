@@ -192,29 +192,32 @@ document.getElementById("demodate").innerHTML = d.getDate();
 
 <!-- Right Menu -->
 <div id="rightmenu">
-  <p class="title" style="text-align: left; margin-left: 10px;">Information</p>
+  <p class="title" style="text-align: left; margin-left: 10px;">Commands</p>
   <div id="particle10" class="hline"></div>
   <div id="particle11" class="hline"></div>
   <div id="particle12" class="vline"></div>
 
   <!-- #######################################################################################################################################################################################################################-->
+  <textarea id="note_input" rows="12" cols="44"></textarea>
   <script>
     const textarea = document.querySelector("#note_input")
     textarea.onkeypress = (event) => {
-      // console.log (`${event.code} key pressed)
-      if ( keycode == 13) {
-        //event.preventDefault()
-        let commandinput = document.getElementById("note_input")
-        console.log(`${event.code} key pressed`)
-        console.log(commandinput)
-        eel.checkcommand(commandinput)(callback3)
-        // only used for debugging the front end 
-      }
-    }
-  </script>
-  <textarea id="note_input" rows="12" cols="44">
+        const keyCode = event.keyCode
+        // console.log(`${event.code} key pressed`)
+        if (keyCode == 13) {
+            //event.preventDefault()
+            // this line prevents user from starting a new line, completely optional
+            
+            let x = document.getElementById("note_input").value
+            console.log(`${event.code} key pressed`)
+            console.log(x)
+            checkcommand(x)
+            alert(x)
 
-  </textarea>
+        }
+    }
+</script>
+  
   
 </div>
 

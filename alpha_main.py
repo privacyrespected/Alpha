@@ -28,6 +28,7 @@ from UI import alpha_frontend
 from playsound import playsound
 
 ####
+from modules.bootloader import *
 #defines the bot
 chatbot = ChatBot(
     'Alpha',
@@ -77,9 +78,23 @@ def trainchatbot(trainer): #works in tandem with bootnoise.startupnoise1()
 
 
 def alpha_main():
-    startup1()
+    user_name=checkuserdata()[0]
+    user_gender=checkuserdata()[2]
+    random_functions = random.randint(1,2)
+    if int(random_functions) == 1:
+        wishMe(user_gender)
+    elif int(random_functions) == 2:
+        wishme2(user_name)
     while True:
+        query = str(query)
         query=listen.lower()
-        query=str(query)
+        if query.startswith("alpha"):
+            #listen 
+            print("listen")
+
+        
+        else:    
+            #ignore 
+            print("ignore")
         
         
