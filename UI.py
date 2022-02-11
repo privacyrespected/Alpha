@@ -29,6 +29,7 @@ def checknetwork1():
 def checkcommand(commandinput):
     print(commandinput)
     Pcommand(commandinput)
+    
 
 #frontend functions
 def alpha_frontend():

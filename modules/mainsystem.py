@@ -2,6 +2,7 @@ from pyautogui import screenshot
 import psutil
 from modules.sense import speak
 import requests
+import os
 #this program defines all possible ways to access computer statistic
 #will expand to other devices connected in the long future we do not kno
 
@@ -46,3 +47,14 @@ def my_location():
     return city, state,country
 #call it by my_location().city
 
+def shutdown_s():
+    os.system("shutdown/s /t 1")
+#make sure you warn user before calling this function, may cause consequences
+
+def flushdns():
+    os.system('ipconfig/flushdns')
+    speak("DNS flushed")
+
+def kill():
+    speak("killing program")
+    exit()
