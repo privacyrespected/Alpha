@@ -4,6 +4,7 @@ print("Alpha V3")
 print("nuggetcatsoftware@gmail.com")
 
 #import modules for chatterbot
+from logging import shutdown
 from threading import Thread
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
@@ -118,6 +119,27 @@ def alpha_main():
                 query=query.replace("meaning","")
                 search_meaning(query)
 
+            #system actions
+            elif query.startswith("system"):
+                print("System actions")
+                if "ram" in query:
+                    checkram()
+                elif "cpu" in query:
+                    checkcpu()
+                elif "battery" in query:
+                    checkbattery()
+                elif "stat"  in query:
+                    systemstats()
+                elif "shut down" in query:
+                    shutdown_s()
+                elif "kill" in query:
+                    kill()
+                elif "flush DNS":
+                    flushdns()
+                elif "location":
+                    my_location()
+                else:
+                    speak("Unknown command for system")
 
             
 
