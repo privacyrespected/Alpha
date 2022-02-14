@@ -141,6 +141,11 @@ def alpha_main():
                 else:
                     speak("Unknown command for system")
 
+
+            
+            else:
+                print("AI response")
+
             
 
             #cannot identify, dont understand or give AI response
