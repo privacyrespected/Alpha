@@ -47,6 +47,8 @@ For coders:
 # TODO
 Feel free to add more functions by issues and have fun!!
 
+# Difficulties faced 
+The speech recognition function is yet to be improved both in the response speed and accuracy. Currently, it is using Google SpeechRecognition services. As such, one limiting factor is the internet speed. Alternatives include finding an Offline Speech Recognition model as it is impossible to train a speech recognition dataset all by myself, as such, accuracy cannot be controlled too.
 
 # EXE version
 To be uploaded
@@ -77,3 +79,4 @@ Note that alpha_main.py can be replaced by other python programs such as userset
  The onefile attribute puts all files into one single file for asthetics.
  noconsole attribute is used to hide the terminal but please remove it if you would like to debug the program easily. 
  Finally, key attribute is used for the encoding, it is optional but added for security.
+

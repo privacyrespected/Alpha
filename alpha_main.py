@@ -140,7 +140,20 @@ def alpha_main():
                     my_location()
                 else:
                     speak("Unknown command for system")
+            
+            #humane query
+            elif query.startswith('what'):
+                query=query.replace('what','')
+            
 
+            elif query.startswith('where'):
+                query=query.repalce('where','')
+
+            elif query.startswith('when'):
+                query=query.replace("when","")
+            
+            elif query.startswith('how'):
+                query=query.replace("how",'')
 
             
             else:
