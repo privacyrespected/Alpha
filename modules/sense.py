@@ -4,8 +4,8 @@ import speech_recognition as sr
 from win10toast import ToastNotifier
 #tts
 def speak(audio):
-    print("Alpha: "+audio)
     engine = pyttsx3.init()
+    engine.setProperty("volume", 1)
     engine.say(audio)
     engine.runAndWait()
 
