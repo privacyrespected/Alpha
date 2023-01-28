@@ -1,3 +1,4 @@
+#this file is code for any functions related to the windows operating system
 from pyautogui import screenshot
 import psutil
 from sense import speak

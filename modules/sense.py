@@ -1,3 +1,6 @@
+#speak
+#listen
+#notify
 import time
 import pyttsx3
 import speech_recognition as sr
@@ -9,7 +12,8 @@ def speak(audio):
     engine.say(audio)
     engine.runAndWait()
 
-#listen
+#listen 
+#reimplement anther system
 def listen():
     r = sr.Recognizer()
     with sr.Microphone() as source:

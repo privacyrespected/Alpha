@@ -1,4 +1,5 @@
-
+#this function is to display words on the terminal
+#cannot be observed on front end
 import sys
 import time
 import pyfiglet

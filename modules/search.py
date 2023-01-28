@@ -1,3 +1,4 @@
+#this searches any definitions or other kinds of factual information on the internet
 from cv2 import mean
 import wikipedia
 from sense import speak

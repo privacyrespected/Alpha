@@ -1,4 +1,6 @@
 #DO NOT RUN THIS MODULE INDIVIDUALLY
+#This is the main startup function
+#It only runs when the program is started
 import json
 from os import path
 from modules.sense import speak
