@@ -1,5 +1,5 @@
 import requests
-from sense import speak
+from modules.sense import speak
 def weather_data(query):
 	res=requests.get('http://api.openweathermap.org/data/2.5/weather?'+query+'&APPID=5bddd4ad4f4f192f6dfffe714388c103');
 	return res.json();

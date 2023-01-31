@@ -104,11 +104,13 @@ def listen():
             while True:
                 data = q.get()
                 if rec.AcceptWaveform(data):
-                    print(rec.Result())
-                else:
-                    print(rec.PartialResult())
+                    output=rec.Result()
+                    return output
                 if dump_fn is not None:
                     dump_fn.write(data)
+                else:
+                    continue #we need to find a way to eliminate this line
+                
     except KeyboardInterrupt:
         print("\nDone")
         parser.exit(0)

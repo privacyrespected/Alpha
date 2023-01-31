@@ -5,10 +5,8 @@ import eel
 import psutil
 import sys
 import platform
-try:
-    eel.init("web")
-except Exception as e:
-    eel.init("UI/web")
+
+eel.init("web")
 @eel.expose
 def checkram():
     memory_info=psutil.virtual_memory()
@@ -37,4 +35,4 @@ def alpha_frontend():
 
 #uncomment this line to purely debug this function
 #alpha_frontend()
-alpha_frontend()
+

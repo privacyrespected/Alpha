@@ -93,3 +93,4 @@ def startup_audio():
 def startup_main():
     Thread(target=startup_speak).start()
     Thread(target=startup_audio).start()
+
