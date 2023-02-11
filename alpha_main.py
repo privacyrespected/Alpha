@@ -30,51 +30,47 @@ def alpha_main():
         res=re.findall(r'\".*?\"', test)
         input = res[1]
         input =input.strip('\"')
-        if input.startswith("alpha"):
+        print(input)
+        if input.startswith("hello"):
+            input = input.replace("hello","")
             if input=="alpha":
                 speak("How can I help you?")
+            
             else:
                 if input == "":
                     continue
                 else:
                     print("USER INPUTL: "+ input)
-                    if mute == 1:
-                        if "unmute" in input:
-                            mute = 0
-                            continue
+                    print("Output: ") #comment this line 
+                    #### continue all your shit below
+                    if input.startswith("mute"):
+                        mute =1
+                        continue
+                    if "weather" in input:
+                        if "in " in input:
+                            input_city= re.search("^in: (\w+)",input)
+                            target=input_city.groups()
+                            weathermain(target)
                         else:
-                            continue
-                    elif mute ==0:
-                        print("Output: ") #comment this line 
-                        #### continue all your shit below
-                        if input.startswith("mute"):
-                            mute =1
-                            continue
-                        if "weather" in input:
-                            if "in " in input:
-                                input_city= re.search("^in: (\w+)",input)
-                                target=input_city.groups()
-                                weathermain(target)
-                            else:
-                                weathermain(checkuserdata()[1])
-                        elif "check" and "memory" in input:
-                            checkram()
-                        elif "check" and "cpu" in input:
-                            checkcpu()
-                        elif "check" and "battery" in input:
-                            checkbattery()
-                        elif "check" and "system" in input:
-                            systemstats()
-                        elif "flush" and "dns" in input:
-                            flushdns()
-                        elif input.startswith("shutdown"):
-                            speak("Shutdown protocol has been executed")
-                            shutdown_s()
-                        elif "kill program" in input:
-                            kill()
+                            weathermain(checkuserdata()[1])
+                    elif "check" and "memory" in input:
+                        checkram()
+                    elif "check" and "cpu" in input:
+                        checkcpu()
+                    elif "check" and "battery" in input:
+                        checkbattery()
+                    elif "check" and "system" in input:
+                        systemstats()
+                    elif "flush" and "dns" in input:
+                        flushdns()
+                    elif input.startswith("shut down"):
+                        speak("Shutdown protocol has been executed")
+                        shutdown_s()
+                    elif "kill program" in input:
+                        kill()
 
-                        else:
-                            chatgpt(input)
+                    else:
+                        chatgpt(input)
         else:
             continue
 

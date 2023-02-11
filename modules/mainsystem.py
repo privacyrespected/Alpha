@@ -1,7 +1,7 @@
 #this file is code for any functions related to the windows operating system
 from pyautogui import screenshot
 import psutil
-from sense import speak
+from modules.sense import speak
 import requests
 import os
 #this program defines all possible ways to access computer statistic
